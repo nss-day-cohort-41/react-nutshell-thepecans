@@ -1,0 +1,127 @@
+{
+    "users": [
+      {
+          "username": "user1",
+          "email": "email@email.com",
+          "password": "$uper$3cr#tPassword",
+          "id": 1
+        },
+        {
+          "username": "user2",
+          "email": "email2@email.com",
+          "password": "badpassword",
+          "id": 2
+        },
+        {
+          "username": "user3",
+          "email": "email3@email.com",
+          "password": "probablymyPetsName",
+          "id": 3
+        }
+    ],
+    "friends": [
+      {
+        "userId": 3,
+        "activeUserId": 2,
+        "id": 1
+      },
+      {
+        "userId": 3,
+        "activeUserId": 1,
+        "id": 2
+      },
+      {
+        "userId": 1,
+        "activeUserId": 3,
+        "id": 3
+      },
+      {
+        "userId": 2,
+        "activeUserId": 3,
+        "id": 4
+      }
+    ],
+    "articles": [
+      {
+        "userId": 3,
+        "title": "IBM Condemns Use Of Facial Recognition Software For Anything Other Than Matching People With Their Celebrity Doppelganger",
+        "description": "This is an onion article.",
+        "url": "https://www.theonion.com/ibm-condemns-use-of-facial-recognition-software-for-any-1844146414",
+        "date": "2020-06-24",
+        "id": 1
+      },
+      {
+        "userId": 1,
+        "title": "Tide Accused Of Over-Inflating Number Of Children Who Roll Around In Mud Puddles Before Running Into House",
+        "description": "This is another onion article",
+        "url": "https://www.theonion.com/tide-accused-of-over-inflating-number-of-children-who-r-1844161395",
+        "date": "2020-06-24",
+        "id": 2
+      }
+    ],
+    "tasks": [
+        {
+            "userId": 1,
+            "title": "Change oil in car",
+            "expectCompleteBy": "2020-07-20",
+            "complete": true,
+            "id": 1
+          },
+        {
+            "userId": 1,
+            "title": "Mow the lawn",
+            "expectCompleteBy": "2020-07-19",
+            "complete": false,
+            "id": 2
+        },
+        {
+            "userId": 2,
+            "title": "take out trash",
+            "expectCompleteBy": "2000-01-01",
+            "complete": false,
+            "id": 3
+        }
+    ],
+    "events": [
+        {
+            "userId": 3,
+            "title": "Cleanup day at User2's house",
+            "location": "Billy's house, 123 Main street, Bucksnort, TN 37140",
+            "date": "2020-08-1",
+            "id": 1
+          },
+        {
+            "userId": 3,
+            "title": "Yard Sale",
+            "location": "my house, 126 Main street, Bucksnort, TN 37140",
+            "date": "2020-08-2",
+            "id": 2
+        }
+    ],
+    "messages": [
+        {
+            "userId": 1,
+            "content": "I'm baby ennui wayfarers quinoa waistcoat air plant iPhone.",
+            "date": "2020-06-26",
+            "id": 1
+          },
+        {
+            "userId": 1,
+            "content": "Heirloom cardigan etsy pinterest yuccie tumeric, banh mi shabby chic venmo before they sold out ugh humblebrag bicycle rights cred.",
+            "date": "2020-06-26",
+            "id": 2
+        },
+        {
+            "userId": 3,
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "date": "2020-06-26",
+            "id": 3
+        },
+        {
+            "userId": 2,
+            "content": "Fashion axe distillery slow-carb cliche, cold-pressed pork belly four loko try-hard lyft.",
+            "date": "2020-06-26",
+            "id": 4
+        }
+    ]
+  }
