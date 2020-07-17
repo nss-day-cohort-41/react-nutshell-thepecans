@@ -1,6 +1,6 @@
 import { Route } from "react-router-dom"
 import React from "react"
-//import TaskList from "./tasks/TaskList"
+import TaskList from "./tasks/TaskList"
 import EventList from "./events/EventList"
 import EventForm from "./events/Eventform"
 
@@ -14,12 +14,12 @@ const ApplicationViews = (props) => {
                     return <EventList {...props} />
                 }}
             />
-            {/* <Route
+            <Route
                 path="/tasks"
                 render={props => {
                     return <TaskList {...props} />
                 }}
-            /> */}
+            />
             <Route
                 path="/events/new"
                 render={props => {
