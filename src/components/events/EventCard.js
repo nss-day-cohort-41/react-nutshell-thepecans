@@ -1,20 +1,25 @@
 import React from "react"
+import "./Event.css"
 // import { Link } from "react-router-dom"
 
 const EventCard = props => {
 
     const eventDate = new Date(props.event.date * 1000)
-    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-    const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
-    const parseDate = `${daysOfWeek[eventDate.getDay()]}, ${monthNames[eventDate.getMonth()]} ${eventDate.getDate()}, ${eventDate.getFullYear()}`
+    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    const eventDay = daysOfWeek[eventDate.getDay()]
+    const parseDate = `${monthNames[eventDate.getMonth()]} ${eventDate.getDate()}`
     
     return (
         <div className="item-card">
-
-            <h3>{props.event.title}</h3>
-            <p>Location: <span>{props.event.location}</span></p>
-            <p>{parseDate}</p>
-
+            <div className="event--date">
+                <p>{eventDay}</p>
+                <h3>{parseDate}</h3>
+            </div>
+            <div className="event--description">
+                <h4>{props.event.title}</h4>
+                <p>{props.event.location}</p>
+            </div>
         </div>
     )
 }
