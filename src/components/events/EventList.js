@@ -6,17 +6,18 @@ import EventCard from "./EventCard"
 
 const EventList = (props) => {
 
-    const [events, setEvents] = useState([])
     const [firstEvent, setFirstEvent] = useState([])
+    const [remainingEvents, setRemainingEvents] = useState([])
 
     useEffect(() => {
         ApiManager.getByUserId("events", parseInt(sessionStorage.getItem("credentials")))
         .then(eventsFromAPI => {
-            // Sort events in descending order and update state
-            const sortedEvents = eventsFromAPI.sort((event1, event2) => event1.date - event2.date)
-            const currentEvents = sortedEvents.filter(event => parseInt(event.date * 1000) >= new Date().setHours(0, 0, 0, 0))
-            setFirstEvent(currentEvents[0])
-            setEvents(currentEvents)
+            // Eliminate all events before current date, agnostic of time
+            const currentEvents = eventsFromAPI.filter(event => parseInt(event.date * 1000) >= new Date().setHours(0, 0, 0, 0))
+            // Sort current and upcoming list in descending order
+            const sortedEvents = currentEvents.sort((event1, event2) => event1.date - event2.date)
+            setFirstEvent(sortedEvents[0])
+            setRemainingEvents(sortedEvents.slice(1))
         })
     }, [])
 
@@ -26,10 +27,12 @@ const EventList = (props) => {
                 <button type="button" className="button" 
                     onClick={() => {props.history.push("/events/new")}}>Add Event
                 </button>
-            </section>
             <div className="event--list">
-                {events.map(event => <EventCard key={event.id} event={event} {...props} />)}
+            {/* Error prevention in case of no firstEvent */}
+            { firstEvent && <EventCard key={firstEvent.id} event={firstEvent} firstEvent={true} {...props} /> }
+                {remainingEvents.map(event => <EventCard key={event.id} event={event} firstEvent={false} {...props} />)}
             </div>
+            </section>
         </>
     )
 }

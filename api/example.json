@@ -103,6 +103,13 @@
       "date": 1594962000,
       "userId": 1,
       "id": 3
+    },
+    {
+      "title": "Second Event",
+      "location": "Down the List",
+      "date": 1598936400,
+      "userId": 1,
+      "id": 4
     }
   ],
   "messages": [

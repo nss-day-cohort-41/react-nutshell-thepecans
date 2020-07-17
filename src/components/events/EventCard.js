@@ -11,8 +11,9 @@ const EventCard = props => {
     const parseDate = `${monthNames[eventDate.getMonth()]} ${eventDate.getDate()}`
     
     return (
-        <div className="item-card">
-            <div className="event--date">
+        // Add additional class name to the first event in the list
+        <div className={"item-card " + (props.firstEvent && "event--first")}>
+            <div className="event--date"> 
                 <p>{eventDay}</p>
                 <h3>{parseDate}</h3>
             </div>
