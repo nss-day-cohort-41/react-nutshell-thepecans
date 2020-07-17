@@ -20,7 +20,7 @@ const EventForm = props => {
             const newEvent = {
                 title: event.title,
                 location: event.location,
-                date: new Date(event.date).getTime() / 1000,
+                date: new Date(`${event.date}T00:00:00`).getTime() / 1000,
                 userId: parseInt(sessionStorage.getItem("credentials"))
             }
             APIManager.postNewItem("events", newEvent)
