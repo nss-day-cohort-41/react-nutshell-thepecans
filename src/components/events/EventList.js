@@ -14,9 +14,9 @@ const EventList = (props) => {
         .then(eventsFromAPI => {
             // Sort events in descending order and update state
             const sortedEvents = eventsFromAPI.sort((event1, event2) => event1.date - event2.date)
-            const currentEvents = sortedEvents.filter(event => new Date(event.date) >= new Date())
+            const currentEvents = sortedEvents.filter(event => parseInt(event.date * 1000) >= new Date().setHours(0, 0, 0, 0))
             setFirstEvent(currentEvents[0])
-            setEvents(currentEvents.slice())
+            setEvents(currentEvents)
         })
     }, [])
 
@@ -28,7 +28,7 @@ const EventList = (props) => {
                 </button>
             </section>
             <div className="event--list">
-                {events.map(event => <EventCard key={event.index} event={event} {...props} />)}
+                {events.map(event => <EventCard key={event.id} event={event} {...props} />)}
             </div>
         </>
     )
