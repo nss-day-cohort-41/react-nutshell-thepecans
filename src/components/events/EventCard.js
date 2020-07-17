@@ -22,6 +22,9 @@ const EventCard = props => {
                 <h4>{props.event.title}</h4>
                 <p>{props.event.location}</p>
             </div>
+            {props.deleteEvent
+                && <button type="button" className="button" onClick={() => props.deleteEvent(props.event.id)}>Delete</button>
+            }
         </div>
     )
 }
