@@ -19,7 +19,7 @@ const EventForm = props => {
             setEvent(event)
             setIsLoading(false)
         })
-    }, [])
+    }, [props.match.params.eventId])
 
     const updateEvent = evt => {
         evt.preventDefault()
