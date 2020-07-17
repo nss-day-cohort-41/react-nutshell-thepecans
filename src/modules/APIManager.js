@@ -7,6 +7,15 @@ export default {
     },
     getById(source, userId) {
         return fetch(`${remoteURL}/${source}?userId=${userId}`).then(result => result.json())
+    },
+    postNewItem(source, newItem) {
+        return fetch(`${remoteURL}/${source}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newItem)
+        })
     }
     
 }
