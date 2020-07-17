@@ -1,3 +1,5 @@
+// EventList component by David Larsen
+
 import React, { useState, useEffect} from "react"
 import APIManager from "../../modules/APIManager"
 import EventCard from "./EventCard"
@@ -12,7 +14,9 @@ const EventList = (props) => {
         .then(eventsFromAPI => {
             // Sort events in descending order and update state
             const sortedEvents = eventsFromAPI.sort((event1, event2) => event1.date - event2.date)
-            setEvents(sortedEvents)
+            const currentEvents = sortedEvents.filter(event => new Date(event.date) >= new Date())
+            setFirstEvent(currentEvents[0])
+            setEvents(currentEvents.slice())
         })
     }, [])
 
