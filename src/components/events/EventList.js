@@ -5,6 +5,7 @@ import EventCard from "./EventCard"
 const EventList = (props) => {
 
     const [events, setEvents] = useState([])
+    const [firstEvent, setFirstEvent] = useState([])
 
     useEffect(() => {
         APIManager.getById("events", parseInt(sessionStorage.getItem("credentials")))
@@ -23,7 +24,7 @@ const EventList = (props) => {
                 </button>
             </section>
             <div className="event--list">
-                {events.map(event => <EventCard key={event.id} event={event} {...props} />)}
+                {events.map(event => <EventCard key={event.index} event={event} {...props} />)}
             </div>
         </>
     )
