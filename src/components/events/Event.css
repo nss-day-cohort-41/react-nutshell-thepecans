@@ -43,6 +43,8 @@
 
 .event--first {
     width: 90%;
+    font-weight: bold;
+    background-color: #f5f0f0;
 }
 
 .event--first .event--date h3 {
