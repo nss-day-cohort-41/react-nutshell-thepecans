@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import APIManager from "../../modules/APIManager"
+import ApiManager from "../../modules/ApiManager"
 
 const EventForm = props => {
     const [event, setEvent] = useState({ title: "", location: "", date: ""})
@@ -23,7 +23,7 @@ const EventForm = props => {
                 date: new Date(`${event.date}T00:00:00`).getTime() / 1000,
                 userId: parseInt(sessionStorage.getItem("credentials"))
             }
-            APIManager.postNewItem("events", newEvent)
+            ApiManager.addObject("events", newEvent)
             .then(() => props.history.push("/events"))
         }
     }

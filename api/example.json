@@ -94,22 +94,15 @@
       "userId": 3,
       "title": "Yard Sale",
       "location": "my house, 126 Main street, Bucksnort, TN 37140",
-      "date": 1594929680,
+      "date": 1594929662,
       "id": 2
     },
     {
-      "title": "App Testing",
-      "location": "Reactville",
-      "date": 1595030400,
+      "title": "Test App",
+      "location": "ReactVille",
+      "date": 1594962000,
       "userId": 1,
       "id": 3
-    },
-    {
-      "title": "Burn It to the Ground!",
-      "location": "146 Main St., Nashville, TN",
-      "date": 1596862800,
-      "userId": 1,
-      "id": 4
     }
   ],
   "messages": [
