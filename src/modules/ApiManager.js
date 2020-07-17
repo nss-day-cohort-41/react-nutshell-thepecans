@@ -2,15 +2,16 @@ const remoteURL = "http://localhost:5002"
 //json-server -p 5002 -w database.json
 
 export default {
-    //"id" and "embed" are optional parameters. the function will work without either of them
+    //"embed" is an optional parameters. the function will work without it.  If "id is omitted, call the cunction with an empty string in the id parameter"
     getEmbedded(table, id, embed) {
         return fetch(`${remoteURL}/${table}/${id}?_embed=${embed}`)
             .then(result => result.json())
     },
-    //"id" and "expand" are optional parameters. the function will work without either of them
+    //"expand" is an optional parameters. the function will work without it.
     getExpanded(table, id, expand) {
         return fetch(`${remoteURL}/${table}/${id}?_expand=${expand}`).then(result => result.json())
     },
+    //A simpler call with no id parameter for when you're in a hurry or just don't want to make things too complicated.  "expand" can be left out
     getAll(table, expand) {
         return fetch(`${remoteURL}/${table}/?_expand=${expand}`).then(result => result.json())
     },
