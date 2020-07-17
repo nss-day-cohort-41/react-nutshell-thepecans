@@ -3,12 +3,14 @@ import React from 'react'
 const FriendCard = props => {
 
     return (
-        <div>
-            <div>
-                <h3>Name: Buddy</h3>
+        <>
+            <div className='card'>
+                <h3>{props.user.username}</h3>
+                <button type="button">Articles</button> 
+                <button type="button">Events</button> 
             </div>
             
-        </div>
+        </>
     )
 }
 

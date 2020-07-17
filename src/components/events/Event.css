@@ -1,0 +1,60 @@
+.event--list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.item-card {
+    display: flex;
+    flex-direction: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+}
+
+.event--date {
+    flex: 1;
+    padding: .5rem 1rem 0 1rem;
+    margin: 1rem;
+    width: 100%;
+}
+
+.event--date h3 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.event--date p {
+    margin: 1rem 0 0;
+}
+
+.event--description {
+    flex: 3;
+    padding: 1rem 0 0;
+    margin: 1rem;
+    width: 100%
+}
+
+.event--description h4 {
+    font-size: 1.5rem;
+    margin: 1rem 0 0;
+}
+
+.event--first {
+    width: 90%;
+    font-weight: bold;
+    background-color: #f5f0f0;
+}
+
+.event--first .event--date h3 {
+    font-size: 3rem;
+}
+
+.event--first p {
+    font-size: 1.5rem;
+}
+
+.event--first .event--description h4 {
+    font-size: 2rem;
+}

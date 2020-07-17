@@ -1,0 +1,17 @@
+body {
+    background-color: rgb(74, 65, 42);
+}
+
+.card__container{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.card {
+    width: 30%;
+    border: 1px black solid;
+    margin: .5rem;
+    padding: .2rem;
+    border-radius: 5px;
+    flex-flow: column;
+}

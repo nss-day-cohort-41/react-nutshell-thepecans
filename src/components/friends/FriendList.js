@@ -1,29 +1,38 @@
 import React, {useState, useEffect} from 'react'
-import FriendCard from './FriendCard.js'
-import API from '../../modules/ApiManager.js'
+import FriendCard from './FriendCard'
+import ApiManager from '../../modules/ApiManager'
+import "./Friends.css"
 
 
 const FriendList = props => {
 
-const [friends, setFriends] = useState({ userName: ""})
+    const [friends, setFriends] = useState([])
 
 
 
-useEffect(() => {
+    useEffect(() => {
 
-    API.getFriends(sessionStorage.activeUser)
-        .then(results => setFriends(results))
-})
-
-
+        ApiManager.getFriends(sessionStorage.credentials)
+            .then(results => setFriends(results))
+    }, [] )
 
 
 
-return (
-    <>
-        <FriendCard friends={friends} {...props} />
-    </>
-)
+
+
+    return (
+        <div className='card__container'>
+            {friends.map(friend => 
+                <FriendCard 
+                    key={friend.user.id}
+                    user={friend.user} 
+                    {...props} 
+                    
+                />
+            )}
+            
+        </div>
+    )
 
 }
 
