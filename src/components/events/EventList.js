@@ -7,7 +7,7 @@ const EventList = (props) => {
     const [events, setEvents] = useState([])
 
     useEffect(() => {
-        APIManager.getAll("events")
+        APIManager.getById("events", parseInt(sessionStorage.getItem("credentials")))
         .then(eventsFromAPI => {
             // Sort events in descending order and update state
             const sortedEvents = eventsFromAPI.sort((event1, event2) => event2.date - event1.date)
