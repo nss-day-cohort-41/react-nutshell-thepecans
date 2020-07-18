@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-//import the components we will need
 import TaskCard from './TaskCard';
 import ApiManager from '../../modules/ApiManager';
 
@@ -34,11 +33,11 @@ const TaskList = (props) => {
                 {tasks.map(task => <TaskCard key={task.id} task={task} deleteTask={deleteTask} activeUserId={activeUserId} {...props} />)}
             </div>
             <section className="section-content">
-                {/* <button type="button"
-          className="btn"
-          onClick={() => { props.history.push("/tasks/new") }}>
-          Add Task
-          </button> */}
+                <button type="button"
+                    className="btn"
+                    onClick={() => { props.history.push("/tasks/new") }}>
+                    Add Task
+          </button>
             </section>
         </>
     );

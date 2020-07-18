@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 
@@ -8,25 +8,31 @@ import { Link } from "react-router-dom";
 //             "complete": true,
 //             "id": 1
 
+
 const TaskCard = (props) => {
+    
+    const date = new Date(props.task.expectCompleteBy*1000)
+    console.log(`${date.getMonth()+1}/${date.getDate()}/${date.getFullYear()}`)
+    const taskDate = `${date.getMonth()+1}/${date.getDate()}/${date.getFullYear()}`
+
+    
+
+
     return (
-        
+
         <div className="card">
             <div className="card-content">
                 {/* <h3>
                     Name: <span className="card-petname">{props.task.title}</span>
                 </h3> */}
-                {console.log(props.task.complete)}
-                <ul>
-                    <li>{props.task.title}</li>
-                    <li>{props.task.expectCompleteBy}</li>
-                    <li>{props.task.complete ? 'done' : 'not done'}</li>
-                </ul>
-                {/* <button type="button" onClick={() => props.deleteTask(props.animal.id)}>Discharge</button>
-                <button type="button"
-                    onClick={() => props.history.push(`/animals/${props.animal.id}/edit`)}>
-                    Edit
-                </button> */}
+
+                <h2>{props.task.title}</h2>
+                <p>Needs to be completed by: {taskDate}</p>
+                <p>status: {props.task.complete ? 'complete' : 'incomplete'}</p>
+                <input type="checkbox" className="completed" id="completed"/>
+                <label htmlFor="completed">Check box to mark as complete</label>
+                {/* this needs to be aple to update database when checked */}
+                
             </div>
         </div>
     );
