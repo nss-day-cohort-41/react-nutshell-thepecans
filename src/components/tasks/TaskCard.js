@@ -10,12 +10,12 @@ import { Link } from "react-router-dom";
 
 
 const TaskCard = (props) => {
-    
-    const date = new Date(props.task.expectCompleteBy*1000)
-    console.log(`${date.getMonth()+1}/${date.getDate()}/${date.getFullYear()}`)
-    const taskDate = `${date.getMonth()+1}/${date.getDate()}/${date.getFullYear()}`
 
-    
+    const date = new Date(props.task.expectCompleteBy * 1000)
+    console.log(`${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`)
+    const taskDate = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`
+
+
 
 
     return (
@@ -29,11 +29,18 @@ const TaskCard = (props) => {
                 <h2>{props.task.title}</h2>
                 <p>Needs to be completed by: {taskDate}</p>
                 <p>status: {props.task.complete ? 'complete' : 'incomplete'}</p>
-                <input type="checkbox" className="completed" id="completed"/>
-                <label htmlFor="completed">Check box to mark as complete</label>
+
                 {/* this needs to be aple to update database when checked */}
-                
+
             </div>
+            <form>
+                <fieldset>
+                    <div classtitle="formgrid">
+                        <input type="checkbox" className="completed" id="completed" />
+                        <label htmlFor="completed">Check box to mark as complete</label>
+                    </div>
+                </fieldset>
+            </form>
         </div>
     );
 };

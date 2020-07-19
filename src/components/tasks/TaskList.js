@@ -35,7 +35,7 @@ const TaskList = (props) => {
                     onClick={() => { props.history.push("/tasks/new") }}>
                     Add Task
                 </button>
-                {tasks.map(task => <TaskCard key={task.id} task={task} deleteTask={deleteTask} activeUserId={activeUserId} {...props} />)}
+                {tasks.map(task => !task.complete && <TaskCard key={task.id} task={task} deleteTask={deleteTask} activeUserId={activeUserId} {...props} />)}
             </div>
             <section className="section-content">
 
