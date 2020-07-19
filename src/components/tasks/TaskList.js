@@ -23,21 +23,22 @@ const TaskList = (props) => {
 
     // got the animals from the API on the component's first render
     useEffect(() => {
-        getTasks();
+            getTasks();    
     }, []);
 
     // Finally we use map() to "loop over" the animals array to show a list of animal cards
     return (
         <>
             <div className="container-cards">
-                {tasks.map(task => <TaskCard key={task.id} task={task} deleteTask={deleteTask} activeUserId={activeUserId} {...props} />)}
-            </div>
-            <section className="section-content">
                 <button type="button"
                     className="btn"
                     onClick={() => { props.history.push("/tasks/new") }}>
                     Add Task
-          </button>
+                </button>
+                {tasks.map(task => <TaskCard key={task.id} task={task} deleteTask={deleteTask} activeUserId={activeUserId} {...props} />)}
+            </div>
+            <section className="section-content">
+
             </section>
         </>
     );

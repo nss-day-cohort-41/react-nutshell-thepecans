@@ -19,6 +19,7 @@ const ApplicationViews = (props) => {
                 }}
             />
             <Route
+                exact
                 path="/tasks"
                 render={props => {
                     return <TaskList {...props} />

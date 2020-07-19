@@ -7,8 +7,10 @@ import ApiManager from '../../modules/ApiManager';
 //             "id": 1
 const activeUserId = sessionStorage.getItem("credentials")
 
+const activeUserIdInt = parseInt(activeUserId)
+
 const TaskForm = props => {
-    const [task, setTask] = useState({userId: activeUserId, title: "", expectCompleteBy: 0, complete: false});
+    const [task, setTask] = useState({ userId: activeUserIdInt, title: "", expectCompleteBy: 0, complete: false });
     const [isLoading, setIsLoading] = useState(false);
 
     const handleFieldChange = evt => {
@@ -17,7 +19,7 @@ const TaskForm = props => {
         setTask(stateToChange);
     };
 
-   
+
     const constructNewTask = evt => {
         evt.preventDefault();
         if (task.title === "" || task.expectCompleteBy === 0) {
@@ -25,6 +27,7 @@ const TaskForm = props => {
         } else {
             setIsLoading(true);
             // Create the task and redirect user to task list
+            task.expectCompleteBy = new Date(`${task.expectCompleteBy}T00:00:00`).getTime() / 1000
             ApiManager.addObject("tasks", task)
                 .then(() => props.history.push("/tasks"));
         }
@@ -44,7 +47,7 @@ const TaskForm = props => {
                         />
                         <label htmlFor="title">title</label>
                         <input
-                            type="text"
+                            type="date"
                             required
                             onChange={handleFieldChange}
                             id="expectCompleteBy"
