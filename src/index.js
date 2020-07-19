@@ -1,3 +1,5 @@
+// Render updated from default by David Larsen
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from "react-router-dom"

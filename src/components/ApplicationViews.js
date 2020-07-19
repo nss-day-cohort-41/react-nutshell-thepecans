@@ -1,9 +1,12 @@
+// Initial file created by David Larsen
+
 import { Route } from "react-router-dom"
 import React from "react"
 import TaskList from "./tasks/TaskList"
 import TaskForm from "./tasks/TaskForm"
 import EventList from "./events/EventList"
-import EventForm from "./events/Eventform"
+import EventForm from "./events/EventForm"
+import EditEventForm from "./events/EditEventForm"
 
 const ApplicationViews = (props) => {
 
@@ -28,6 +31,12 @@ const ApplicationViews = (props) => {
                 path="/events/new"
                 render={props => {
                     return <EventForm {...props} />
+                }}
+            />
+            <Route
+                path="/events/:eventId(\d+)/edit"
+                render={props => {
+                    return <EditEventForm {...props} />
                 }}
             />
         </>
