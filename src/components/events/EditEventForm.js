@@ -31,7 +31,7 @@ const EventForm = props => {
                 id: props.match.params.eventId,
                 title: event.title,
                 location: event.location,
-                date: event.date,
+                date: new Date(`${event.date.substr(0, 10)}T00:00:00`),
                 userId: parseInt(sessionStorage.getItem("credentials"))
             }
             ApiManager.editObject("events", editedEvent)
@@ -65,7 +65,7 @@ const EventForm = props => {
                             required
                             onChange={handleFieldChange}
                             id="date"
-                            value={new Date(event.date * 1000).toISOString().split('T')[0]}
+                            value={event.date.substr(0, 10)}
                         />
                         <label htmlFor="date">Date</label>
                     </div>
