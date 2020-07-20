@@ -1,11 +1,6 @@
+//this module was created by Brendan Abernethy
 import React, { useState } from "react"
 import ApiManager from "../../modules/ApiManager"
-
-// "username": "user1",
-// "email": "email@email.com",
-// "password": "$uper$3cr#tPassword",
-// "id": 1
-   
 
 const Login = props => {
   const [credentials, setCredentials] = useState({ username: "", email: "", password: "", id: 0});
