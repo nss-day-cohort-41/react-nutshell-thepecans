@@ -11,7 +11,9 @@ const EventList = (props) => {
 
     const sortEvents = (eventsArray) => {
         // Eliminate all events before current date, agnostic of time
-        const currentEvents = eventsArray.filter(event => new Date(event.date) >= new Date())
+        console.log(new Date(eventsArray[2].date))
+        console.log(new Date().setHours(0, 0, 0, 0))
+        const currentEvents = eventsArray.filter(event => new Date(event.date) >= new Date().setHours(0, 0, 0, 0))
         console.log(currentEvents)
         // Sort current and upcoming list in descending order
         const sortedEvents = currentEvents.sort((event1, event2) => new Date(event1.date) - new Date(event2.date))
