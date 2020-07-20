@@ -9,26 +9,48 @@ const EventList = (props) => {
     const [firstEvent, setFirstEvent] = useState([])
     const [remainingEvents, setRemainingEvents] = useState([])
 
-    const sortEvents = (eventsArray) => {
+    // Get current user Id for reference
+    const currentUserId = parseInt(sessionStorage.getItem("credentials"))
+
+
+    const sortEvents = (eventsArray, friendsArray) => {
+        // Elminate events that do not belong to the current user or his/her friends
+        const relevantEvents = eventsArray.filter(event => {
+            if (event.userId === currentUserId) {return true}
+            return friendsArray.some(friend => friend.userId === event.userId)
+        })
         // Eliminate all events before current date, agnostic of time
-        const currentEvents = eventsArray.filter(event => new Date(event.date) >= new Date().setHours(0, 0, 0, 0))
+        const currentEvents = relevantEvents.filter(event => new Date(event.date) >= new Date().setHours(0, 0, 0, 0))
         // Sort current and upcoming list in descending order
         const sortedEvents = currentEvents.sort((event1, event2) => new Date(event1.date) - new Date(event2.date))
-        setFirstEvent(sortedEvents[0])
-        setRemainingEvents(sortedEvents.slice(1))
-        console.log(sortedEvents)
+        // Find first event belonging to the current user
+        const firstUserEvent = currentEvents.find(event => event.userId === currentUserId)
+        setFirstEvent(firstUserEvent)
+        // Then, remove the first user's event from the array to display the remaining events
+        sortedEvents.splice(sortedEvents.indexOf(firstUserEvent), 1)
+        setRemainingEvents(sortedEvents)
     }
 
     useEffect(() => {
-        ApiManager.getByUserId("events", parseInt(sessionStorage.getItem("credentials")))
-        .then(eventsFromAPI => sortEvents(eventsFromAPI))
+        ApiManager.getFriends(parseInt(sessionStorage.getItem("credentials")))
+        .then(friendsFromAPI => {
+            ApiManager.getAll("events")
+            .then(eventsFromAPI => {
+                sortEvents(eventsFromAPI, friendsFromAPI)
+            })
+        })
     }, [])
 
     // Delete button calls this function to delete event, then pull the updated list of events and update state
     const deleteEvent = id => {
         ApiManager.deleteObject("events", id)
-        .then(() => ApiManager.getByUserId("events", parseInt(sessionStorage.getItem("credentials"))))
-        .then((eventsFromAPI) => sortEvents(eventsFromAPI))
+        .then(() => ApiManager.getFriends(parseInt(sessionStorage.getItem("credentials"))))
+        .then(friendsFromAPI => {
+            ApiManager.getAll("events")
+            .then(eventsFromAPI => {
+                sortEvents(eventsFromAPI, friendsFromAPI)
+            })
+        })
     }
 
     return (
@@ -39,8 +61,8 @@ const EventList = (props) => {
                 </button>
             <div className="event--list">
             {/* Error prevention in case of no firstEvent */}
-            { firstEvent && <EventCard key={firstEvent.id} event={firstEvent} deleteEvent={deleteEvent} firstEvent={true} {...props} /> }
-                {remainingEvents.map(event => <EventCard key={event.id} event={event} deleteEvent={deleteEvent} firstEvent={false} {...props} />)}
+            { firstEvent && <EventCard key={firstEvent.id} event={firstEvent} deleteEvent={deleteEvent} firstEvent={true} currentUserId={currentUserId} {...props} /> }
+                {remainingEvents.map(event => <EventCard key={event.id} event={event} deleteEvent={deleteEvent} firstEvent={false} currentUserId={currentUserId} {...props} />)}
             </div>
             </section>
         </>
