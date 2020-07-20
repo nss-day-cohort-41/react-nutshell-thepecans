@@ -2,6 +2,8 @@
 
 import { Route } from "react-router-dom"
 import React from "react"
+import Home from './home/Home.js'
+import FriendList from "./friends/FriendList.js"
 import TaskList from "./tasks/TaskList"
 import TaskForm from "./tasks/TaskForm"
 import CompletedTaskList from "./tasks/completedTasks"
@@ -16,6 +18,14 @@ const ApplicationViews = (props) => {
 
     return (
         <>
+            <Route 
+                exact path="/"
+                render={props => {
+                    return <Home />
+                }}
+            />
+
+        {/* event related routes  */}
             <Route path="/login" render={props => {
                 return <Login setUser={setUser} {...props} />
             }} />
@@ -25,6 +35,15 @@ const ApplicationViews = (props) => {
                     return <EventList {...props} />
                 }}
             />
+
+        {/* friend related routes  */}
+            <Route 
+                path="/friends"
+                render={props => {
+                    return <FriendList {...props} />
+                }}
+            />
+
             <Route
                 exact
                 path="/tasks"
