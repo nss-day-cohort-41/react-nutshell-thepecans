@@ -10,9 +10,11 @@ const EventList = (props) => {
     const [firstEvent, setFirstEvent] = useState([])
     const [remainingEvents, setRemainingEvents] = useState([])
 
+    // Get current user Id for reference
+    const currentUserId = parseInt(sessionStorage.getItem("credentials"))
+
+
     const sortEvents = (eventsArray, friendsArray) => {
-        // Get current user Id for reference
-        const currentUserId = parseInt(sessionStorage.getItem("credentials"))
         // Elminate events that do not belong to the current user or his/her friends
         const relevantEvents = eventsArray.filter(event => {
             if (event.userId === currentUserId) {return true}
@@ -56,8 +58,8 @@ const EventList = (props) => {
                 </button>
             <div className="event--list">
             {/* Error prevention in case of no firstEvent */}
-            { firstEvent && <EventCard key={firstEvent.id} event={firstEvent} deleteEvent={deleteEvent} firstEvent={true} {...props} /> }
-                {remainingEvents.map(event => <EventCard key={event.id} event={event} deleteEvent={deleteEvent} firstEvent={false} {...props} />)}
+            { firstEvent && <EventCard key={firstEvent.id} event={firstEvent} deleteEvent={deleteEvent} firstEvent={true} currentUserId={currentUserId} {...props} /> }
+                {remainingEvents.map(event => <EventCard key={event.id} event={event} deleteEvent={deleteEvent} firstEvent={false} currentUserId={currentUserId} {...props} />)}
             </div>
             </section>
         </>
