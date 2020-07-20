@@ -7,7 +7,7 @@ import "./Pecans.css"
 const Pecans = () => {
     
     // Temporary "login"
-    sessionStorage.setItem("credentials", "2")
+    sessionStorage.setItem("credentials", "3")
 
     return (
         <>
