@@ -1,11 +1,8 @@
+//this module was created by Brendan Abernethy
 import React, { useState } from 'react';
 import ApiManager from '../../modules/ApiManager';
 
-//             "userId": 1,
-//             "title": "Change oil in car",
-//             "expectCompleteBy": "1594929662",
-//             "complete": true,
-//             "id": 1
+
 const activeUserId = sessionStorage.getItem("credentials")
 
 const activeUserIdInt = parseInt(activeUserId)
