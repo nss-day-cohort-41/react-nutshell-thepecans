@@ -20,7 +20,7 @@ const ApplicationViews = (props) => {
             <Route path="/login" render={props => {
                 return <Login setUser={setUser} {...props} />
             }} />
-            <Route path="/login" render={props => {
+            <Route path="/RegistrationForm" render={props => {
                 return <RegistrationForm {...props} />
             }} />
             <Route

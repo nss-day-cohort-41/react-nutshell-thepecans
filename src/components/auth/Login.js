@@ -25,7 +25,7 @@ const Login = props => {
     ApiManager.getAll("users").then((users) => {
         users.map((user) => {
             console.log("login db response", user.username, user.password)
-            console.log("login credentials", credentials.username, user.password)
+            console.log("login credentials", credentials.username, credentials.password)
             if (user.username === credentials.username && user.password === credentials.password) {
                 console.log("yay")
                   props.setUser(user.id)
@@ -39,7 +39,7 @@ const Login = props => {
     })
 
 
-    //props.history.push("/");
+    props.history.push("/");
   }
 
   return (
