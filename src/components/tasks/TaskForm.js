@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import ApiManager from '../../modules/ApiManager';
 
 
-const activeUserId = sessionStorage.getItem("credentials")
+const activeUserId = JSON.parse(sessionStorage.getItem("credentials")).id
 
 const activeUserIdInt = parseInt(activeUserId)
 
