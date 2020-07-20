@@ -1,3 +1,5 @@
+//initial file created by Brendan Abernethy
+
 const remoteURL = "http://localhost:5002"
 //json-server -p 5002 -w database.json
 
@@ -11,7 +13,7 @@ export default {
     getExpanded(table, id, expand) {
         return fetch(`${remoteURL}/${table}/${id}?_expand=${expand}`).then(result => result.json())
     },
-    //A simpler call with no id parameter for when you're in a hurry or just don't want to make things too complicated.  "expand" can be left out
+    //"expand" can be left out
     getAll(table, expand) {
         return fetch(`${remoteURL}/${table}/?_expand=${expand}`).then(result => result.json())
     },
