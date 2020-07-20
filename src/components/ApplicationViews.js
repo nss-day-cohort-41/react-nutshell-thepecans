@@ -8,11 +8,17 @@ import CompletedTaskList from "./tasks/completedTasks"
 import EventList from "./events/EventList"
 import EventForm from "./events/EventForm"
 import EditEventForm from "./events/EditEventForm"
+import Login from "./auth/Login"
 
 const ApplicationViews = (props) => {
+    const hasUser = props.hasUser;
+    const setUser = props.setUser;
 
     return (
         <>
+            <Route path="/login" render={props => {
+                return <Login setUser={setUser} {...props} />
+            }} />
             <Route
                 exact path="/events"
                 render={props => {
