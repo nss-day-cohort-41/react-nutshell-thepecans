@@ -61,6 +61,7 @@
     width: 90%;
     font-weight: bold;
     background-color: var(--light-blue);
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
 }
 
 .event--first .event--date h3 {
