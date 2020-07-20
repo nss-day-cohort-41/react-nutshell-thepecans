@@ -1,3 +1,4 @@
+//this module was created by Brendan Abernethy
 import React, { useState, useEffect } from 'react';
 import TaskCard from './TaskCard';
 import ApiManager from '../../modules/ApiManager';
@@ -20,7 +21,6 @@ const TaskList = (props) => {
     };
     const editTask = editedTask => {
         ApiManager.editObject("tasks", editedTask)
-            //.then(() => props.history.push("/tasks"))
             .then(() => getTasks());
             console.log("editing", editedTask)
     };
