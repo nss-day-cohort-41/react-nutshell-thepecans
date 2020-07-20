@@ -7,33 +7,52 @@ import "./Friends.css"
 
 const FriendList = props => {
 
-    const [friends, setFriends] = useState([])
+    const [friends, setFriends] = useState([]) 
 
 
 
     useEffect(() => {
-
         ApiManager.getFriends(sessionStorage.credentials)
             .then(results => setFriends(results))
     }, [] )
 
+// creates relationship object in friend
+    const addFriend = (id) => {
+        const newFriend = {
+            activeUserId: parseInt(sessionStorage.credentials),
+            userId: parseInt(id)
+        }
+        
+        ApiManager.addObject('friends', newFriend)
+            .then(ApiManager.getFriends(sessionStorage.credentials)
+                    .then(results => setFriends(results)))
 
+    }
+
+
+
+// activates onClick of remove button on FriendCard
     const removeFriend = id => {
         ApiManager.deleteObject('friends', id)
-            .then(() => ApiManager.getFriends(sessionStorage.credentials)
-                            .then(results => setFriends(results)))
+            .then(ApiManager.getFriends(sessionStorage.credentials)
+                            .then(results => setFriends(results))
+                )
 
     }
    
+
     return (
         <>
 
-            <FriendForm {...props} />
+            <FriendForm 
+                addFriend={addFriend}
+                {...props} 
+            />
             <div className='card__container'>            
                 {friends.map(friend => 
                     <FriendCard 
-                        key={friend.user.id}
-                        user={friend.user} 
+                        key={friend.id}
+                        friend={friend} 
                         removeFriend={removeFriend}
                         {...props} 
                         

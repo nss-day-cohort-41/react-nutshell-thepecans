@@ -23,6 +23,16 @@ body {
     border-radius: 5px;
 }
 
-.friendSearch > label {
+.friendSearch label {
     margin: .5rem;
+    
+}
+
+.searchList {
+    display: flex;
+    
+}
+
+.searchList button {
+    margin: .2rem;
 }
