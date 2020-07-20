@@ -26,7 +26,7 @@ const EventForm = props => {
                 userId: parseInt(sessionStorage.getItem("credentials"))
             }
             ApiManager.addObject("events", newEvent)
-            .then(() => props.history.push("/events"))
+            .then(() => props.history.push("/events")) 
         }
     }
 
