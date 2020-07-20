@@ -23,17 +23,18 @@ const EventList = (props) => {
         .then(eventsFromAPI => sortEvents(eventsFromAPI))
     }, [])
 
-    // Delete button calls this button to delete event, then pull the updated list of events and update state
+    // Delete button calls this function to delete event, then pull the updated list of events and update state
     const deleteEvent = id => {
         ApiManager.deleteObject("events", id)
-        .then(() => ApiManager.getByUserId("events", parseInt(sessionStorage.getItem("credentials")))).then((eventsFromAPI) => sortEvents(eventsFromAPI))
+        .then(() => ApiManager.getByUserId("events", parseInt(sessionStorage.getItem("credentials"))))
+        .then((eventsFromAPI) => sortEvents(eventsFromAPI))
     }
 
     return (
         <>
             <section className="section-content">
-                <button type="button" className="button" 
-                    onClick={() => {props.history.push("/events/new")}}>Add Event
+                <button type="button" className="section--button" 
+                    onClick={() => {props.history.push("/events/new")}}>&#65291; Add Event
                 </button>
             <div className="event--list">
             {/* Error prevention in case of no firstEvent */}
