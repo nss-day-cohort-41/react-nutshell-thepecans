@@ -18,6 +18,12 @@ const TaskList = (props) => {
         ApiManager.deleteObject("tasks", id)
             .then(() => getTasks());
     };
+    const editTask = editedTask => {
+        ApiManager.editObject("tasks", editedTask)
+            //.then(() => props.history.push("/tasks"))
+            .then(() => getTasks());
+            console.log("editing", editedTask)
+    };
     //active user Id captured from session storage (pecan.js)
 
 
@@ -35,7 +41,7 @@ const TaskList = (props) => {
                     onClick={() => { props.history.push("/tasks/new") }}>
                     Add Task
                 </button>
-                {tasks.map(task => !task.complete && <TaskCard key={task.id} task={task} deleteTask={deleteTask} activeUserId={activeUserId} {...props} />)}
+                {tasks.map(task => !task.complete && <TaskCard key={task.id} task={task} deleteTask={deleteTask} editTask={editTask} activeUserId={activeUserId} {...props} />)}
             </div>
             <section className="section-content">
 

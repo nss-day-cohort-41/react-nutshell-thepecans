@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
+
 
 
 //             "userId": 1,
@@ -15,6 +16,14 @@ const TaskCard = (props) => {
     console.log(`${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`)
     const taskDate = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`
 
+    const completedTask = {
+        userId: props.task.userId,
+        title: props.task.title,
+        expectCompleteBy: props.task.expectCompleteBy,
+        complete: true,
+        id: props.task.id
+    };
+
 
 
 
@@ -29,20 +38,25 @@ const TaskCard = (props) => {
                 <h2>{props.task.title}</h2>
                 <p>Needs to be completed by: {taskDate}</p>
                 <p>status: {props.task.complete ? 'complete' : 'incomplete'}</p>
-
-                {/* this needs to be aple to update database when checked */}
+                {/* <TaskCheckbox {...props}/> */}
+                <button
+                    type="button"
+                    //className="btn btn-primary"
+                    onClick={() => props.editTask(completedTask)}>
+                        Mark as complete
+                </button>
+                <button
+                    type="button"
+                    //className="btn btn-primary"
+                    onClick={() => props.deleteTask(props.task.id)}>
+                        Remove task
+                </button>
 
             </div>
-            <form>
-                <fieldset>
-                    <div classtitle="formgrid">
-                        <input type="checkbox" className="completed" id="completed" />
-                        <label htmlFor="completed">Check box to mark as complete</label>
-                    </div>
-                </fieldset>
-            </form>
         </div>
     );
 };
+//<button type="button" onClick={() => props.deleteAnimal(props.animal.id)}>Discharge</button>
+//<button type="button" onClick={() => props.deleteAnimal(props.animal.id)}>Discharge</button>
 
 export default TaskCard;

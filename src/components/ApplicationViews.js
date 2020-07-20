@@ -28,6 +28,10 @@ const ApplicationViews = (props) => {
             <Route path="/tasks/new" render={(props) => {
                 return <TaskForm {...props} />
             }} />
+
+            {/* <Route path="/tasks" render={(props) => {
+                return <TaskCheckbox {...props} />
+            }} /> */}
             <Route
                 path="/events/new"
                 render={props => {
