@@ -22,10 +22,12 @@ const EventCard = props => {
                 <h4>{props.event.title}</h4>
                 <p>{props.event.location}</p>
             </div>
-            <button type="button" className="button" onClick={() => props.history.push(`/events/${props.event.id}/edit`)}>Edit</button>
+            <div className="event--buttons">
+            <button type="button" className="card--button" onClick={() => props.history.push(`/events/${props.event.id}/edit`)}>Edit</button>
             {props.deleteEvent
-                && <button type="button" className="button" onClick={() => props.deleteEvent(props.event.id)}>Delete</button>
+                && <button type="button" className="card--button" onClick={() => props.deleteEvent(props.event.id)}>Delete</button>
             }
+            </div>
         </div>
     )
 }
