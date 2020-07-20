@@ -18,9 +18,13 @@ const FriendList = props => {
     }, [] )
 
 
+    const removeFriend = id => {
+        ApiManager.deleteObject('friends', id)
+            .then(() => ApiManager.getFriends(sessionStorage.credentials)
+                            .then(results => setFriends(results)))
 
-
-
+    }
+   
     return (
         <>
 
@@ -30,6 +34,7 @@ const FriendList = props => {
                     <FriendCard 
                         key={friend.user.id}
                         user={friend.user} 
+                        removeFriend={removeFriend}
                         {...props} 
                         
                     />

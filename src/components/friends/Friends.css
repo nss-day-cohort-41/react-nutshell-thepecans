@@ -8,10 +8,21 @@ body {
 }
 
 .card {
+    background-color: cornsilk;
     width: 30%;
     border: 1px black solid;
     margin: .5rem;
     padding: .2rem;
     border-radius: 5px;
     flex-flow: column;
+}
+
+.friendSearch {
+    background-color: cornsilk;
+    border: 1px black solid;
+    border-radius: 5px;
+}
+
+.friendSearch > label {
+    margin: .5rem;
 }
