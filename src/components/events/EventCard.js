@@ -6,7 +6,6 @@ import "./Event.css"
 const EventCard = props => {
 
     const eventDate = new Date(props.event.date)
-    console.log("Displayed date:", eventDate)
     const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
     const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     const eventDay = daysOfWeek[eventDate.getDay()]

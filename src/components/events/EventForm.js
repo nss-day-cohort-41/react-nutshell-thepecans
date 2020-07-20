@@ -22,7 +22,7 @@ const EventForm = props => {
             const newEvent = {
                 title: event.title,
                 location: event.location,
-                date: event.date,
+                date: new Date(`${event.date}T00:00:00`),
                 userId: parseInt(sessionStorage.getItem("credentials"))
             }
             ApiManager.addObject("events", newEvent)
