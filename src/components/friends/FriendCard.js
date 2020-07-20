@@ -6,6 +6,7 @@ const FriendCard = props => {
         <>
             <div className='card'>
                 <h3>{props.user.username}</h3>
+                <button type="button">Unfriend</button>
                 <button type="button">Articles</button> 
                 <button type="button">Events</button> 
             </div>
