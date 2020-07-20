@@ -31,7 +31,7 @@ const EventForm = props => {
                 id: props.match.params.eventId,
                 title: event.title,
                 location: event.location,
-                date: new Date(`${event.date}T00:00:00`),
+                date: new Date(`${event.date.substr(0, 10)}T00:00:00`),
                 userId: parseInt(sessionStorage.getItem("credentials"))
             }
             ApiManager.editObject("events", editedEvent)

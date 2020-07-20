@@ -6,7 +6,6 @@ import EventCard from "./EventCard"
 
 const EventList = (props) => {
 
-    const [allEvents, setAllEvents] = useState([])
     const [firstEvent, setFirstEvent] = useState([])
     const [remainingEvents, setRemainingEvents] = useState([])
 
@@ -37,7 +36,6 @@ const EventList = (props) => {
         .then(friendsFromAPI => {
             ApiManager.getAll("events")
             .then(eventsFromAPI => {
-                setAllEvents(eventsFromAPI)
                 sortEvents(eventsFromAPI, friendsFromAPI)
             })
         })
@@ -46,8 +44,13 @@ const EventList = (props) => {
     // Delete button calls this function to delete event, then pull the updated list of events and update state
     const deleteEvent = id => {
         ApiManager.deleteObject("events", id)
-        .then(() => ApiManager.getByUserId("events", parseInt(sessionStorage.getItem("credentials"))))
-        .then((eventsFromAPI) => sortEvents(eventsFromAPI))
+        .then(() => ApiManager.getFriends(parseInt(sessionStorage.getItem("credentials"))))
+        .then(friendsFromAPI => {
+            ApiManager.getAll("events")
+            .then(eventsFromAPI => {
+                sortEvents(eventsFromAPI, friendsFromAPI)
+            })
+        })
     }
 
     return (
