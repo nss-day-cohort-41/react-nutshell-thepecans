@@ -31,9 +31,9 @@ const Login = props => {
         users.map((user) => {
             console.log("login db response", user.username, user.password)
             console.log("login credentials", credentials.username, user.password)
-            if (user.username === credentials.username && user.password === user.password) {
+            if (user.username === credentials.username && user.password === credentials.password) {
                 console.log("yay")
-                  props.setUser(user)
+                  props.setUser(user.id)
             } else {
                 console.log("boo")
             }
