@@ -11,11 +11,13 @@ const EventList = (props) => {
 
     const sortEvents = (eventsArray) => {
         // Eliminate all events before current date, agnostic of time
-        const currentEvents = eventsArray.filter(event => parseInt(event.date * 1000) >= new Date().setHours(0, 0, 0, 0))
+        const currentEvents = eventsArray.filter(event => new Date(event.date) >= new Date())
+        console.log(currentEvents)
         // Sort current and upcoming list in descending order
-        const sortedEvents = currentEvents.sort((event1, event2) => event1.date - event2.date)
+        const sortedEvents = currentEvents.sort((event1, event2) => new Date(event1.date) - new Date(event2.date))
         setFirstEvent(sortedEvents[0])
         setRemainingEvents(sortedEvents.slice(1))
+        console.log(sortedEvents)
     }
 
     useEffect(() => {

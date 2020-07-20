@@ -65,7 +65,7 @@ const EventForm = props => {
                             required
                             onChange={handleFieldChange}
                             id="date"
-                            value={new Date(event.date * 1000).toISOString().split('T')[0]}
+                            value={event.date}
                         />
                         <label htmlFor="date">Date</label>
                     </div>
