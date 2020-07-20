@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import TaskCard from './TaskCard';
+import CompletedTaskCard from './completedTaskCard';
 import ApiManager from '../../modules/ApiManager';
 
 
 const activeUserId = sessionStorage.getItem("credentials")
-console.log("hello! from taskList", activeUserId)
+console.log("hello! from CompletedtaskList", activeUserId)
 
-const TaskList = (props) => {
+const CompletedTaskList = (props) => {
     const [tasks, setTasks] = useState([]);
 
     const getTasks = () => {
@@ -40,10 +40,10 @@ const TaskList = (props) => {
                 </button>
                 <button type="button"
                     className="btn"
-                    onClick={() => { props.history.push("/completedTasks") }}>
-                    view Completed Tasks
+                    onClick={() => { props.history.push("/tasks") }}>
+                    view incomplete tasks
                 </button>
-                {tasks.map(task => !task.complete && <TaskCard key={task.id} task={task} deleteTask={deleteTask} editTask={editTask} activeUserId={activeUserId} {...props} />)}
+                {tasks.map(task => task.complete && <CompletedTaskCard key={task.id} task={task} deleteTask={deleteTask} editTask={editTask} activeUserId={activeUserId} {...props} />)}
             </div>
             <section className="section-content">
 
@@ -51,4 +51,4 @@ const TaskList = (props) => {
         </>
     );
 };
-export default TaskList
+export default CompletedTaskList
