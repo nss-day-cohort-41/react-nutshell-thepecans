@@ -105,11 +105,18 @@
       "id": 3
     },
     {
-      "title": "Second Event",
-      "location": "Down the List",
+      "id": 4,
+      "title": "First Event",
+      "location": "Now edited!",
       "date": 1598936400,
+      "userId": 1
+    },
+    {
+      "title": "Second Event",
+      "location": "For testing",
+      "date": 1600059600,
       "userId": 1,
-      "id": 4
+      "id": 5
     }
   ],
   "messages": [

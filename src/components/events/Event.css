@@ -1,21 +1,27 @@
+/* Event.css by David Larsen */
+
 .event--list {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .item-card {
     display: flex;
-    flex-direction: wrap;
+    flex-direction: row;
     justify-content: space-around;
     align-items: center;
     width: 80%;
+    padding: .5rem;
+    border: 1px solid var(--light-blue);
 }
 
 .event--date {
     flex: 1;
-    padding: .5rem 1rem 0 1rem;
+    text-align: right;
+    padding: .5rem 2rem .5rem .5rem;
     margin: 1rem;
     width: 100%;
 }
@@ -23,6 +29,7 @@
 .event--date h3 {
     font-size: 2.5rem;
     margin: 0;
+    font-weight: normal;
 }
 
 .event--date p {
@@ -30,25 +37,36 @@
 }
 
 .event--description {
-    flex: 3;
-    padding: 1rem 0 0;
-    margin: 1rem;
+    flex: 2;
+    padding: 1rem .5rem 0;
+    margin: 0;
     width: 100%
 }
 
 .event--description h4 {
     font-size: 1.5rem;
+    font-weight: normal;
     margin: 1rem 0 0;
+}
+
+.event--buttons {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 0 2rem 0 0;
 }
 
 .event--first {
     width: 90%;
     font-weight: bold;
-    background-color: #f5f0f0;
+    background-color: var(--light-blue);
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
 }
 
 .event--first .event--date h3 {
     font-size: 3rem;
+    font-weight: bold;
 }
 
 .event--first p {
@@ -57,4 +75,5 @@
 
 .event--first .event--description h4 {
     font-size: 2rem;
+    font-weight: bold;
 }
