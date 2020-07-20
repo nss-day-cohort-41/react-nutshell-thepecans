@@ -4,7 +4,7 @@ import TaskCard from './TaskCard';
 import ApiManager from '../../modules/ApiManager';
 
 
-const activeUserId = sessionStorage.getItem("credentials")
+const activeUserId = JSON.parse(sessionStorage.getItem("credentials")).id
 console.log("hello! from taskList", activeUserId)
 
 const TaskList = (props) => {
