@@ -4,13 +4,13 @@ import ApiManager from '../../modules/ApiManager'
 
 const FriendForm = (props) => {
 
-    const [searchItem, setSearchItem] = useState([])
+    const [searchItems, setSearchItems] = useState([])
 
     const searchFriend = (input) => {
         console.log(input.target.value)
         if(input.target.value !== ""){
             ApiManager.searchUsers(input.target.value)
-                .then(results => setSearchItem(results))
+                .then(results => setSearchItems(results))
         }
 
     }
@@ -27,7 +27,7 @@ const FriendForm = (props) => {
                     onChange={searchFriend}
                 />                
             </fieldset>
-            {searchItem.map(item => 
+            {searchItems.map(item => 
                 
                 <div className="searchList">         
                     <p>

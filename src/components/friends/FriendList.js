@@ -13,8 +13,8 @@ const FriendList = props => {
 
     useEffect(() => {
         ApiManager.getFriends(sessionStorage.credentials)
-            .then(results => setFriends(results))
-    }, [friends] )
+        .then(results => setFriends(results))
+    },[] )
 
 // creates relationship object in friend
     const addFriend = (id) => {
