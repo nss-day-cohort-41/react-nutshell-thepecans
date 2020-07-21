@@ -15,6 +15,7 @@ import EventForm from "./events/EventForm"
 import EditEventForm from "./events/EditEventForm"
 import Login from "./auth/Login"
 import RegistrationForm from "./auth/RegistrationForm"
+import MessageList from './messages/MessageList'
 
 const ApplicationViews = (props) => {
     const hasUser = props.hasUser;
@@ -79,7 +80,7 @@ const ApplicationViews = (props) => {
                     return <FriendList {...props} />
                 }}
             />
-
+        {/* task related routes  */}
             <Route
                 exact
                 path="/tasks"
@@ -98,6 +99,12 @@ const ApplicationViews = (props) => {
                 return <TaskForm {...props} />
             }} />
 
+            <Route 
+                path="/messages"
+                render={props => {
+                    return <MessageList {...props}/>
+                }}
+            />
             {/* <Route path="/tasks" render={(props) => {
                 return <TaskCheckbox {...props} />
             }} /> */}
