@@ -3,6 +3,7 @@ import FriendList from "../friends/FriendList"
 import TaskList from "../tasks/TaskList"
 import ArticleList from "../articles/ArticleList"
 import EventList from "../events/EventList"
+import MessageList from '../messages/MessageList'
 import "./Home.css"
 
 
@@ -46,8 +47,9 @@ const Home = (props) => {
                             <div className="hli__header">
                                 <h3>Messages</h3>
                             </div>
-                            <p>messages will go here...</p>
+                            <MessageList {...props} />
                         </div>
+                        
                     </div>
 
 
