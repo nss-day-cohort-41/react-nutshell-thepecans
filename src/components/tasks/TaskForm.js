@@ -56,6 +56,7 @@ const TaskForm = props => {
                     <div classtitle="alignRight">
                         <button
                             type="button"
+                            className="section--button"
                             disabled={isLoading}
                             onClick={constructNewTask}
                         >Submit</button>
