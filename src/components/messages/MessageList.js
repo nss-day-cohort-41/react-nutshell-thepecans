@@ -35,10 +35,10 @@ const getFriendIds = (array) => {
 
 const convertTime = (unixTime) => {
     const date = new Date(unixTime * 1000)
-    
-    const newTime = `${date}`
-    newTime.slice()
-    return newTime
+    const newTime = date.toString()
+    const newNewTime = newTime.slice(0,25)
+    console.log(newNewTime)
+    return newNewTime
 }
 
 useEffect(() => {
