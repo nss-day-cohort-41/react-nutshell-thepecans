@@ -48,51 +48,23 @@ const Login = props => {
                 })
                 if (badWolf === false && newUser.password === rePassword) {
                     ApiManager.addObject("users", newUser)
-                        .then(() => console.log("added user"));
+                        .then(() => {
+                            console.log("added user")
+                            props.history.push("/");
+                        })
+                }else if (newUser.password !== rePassword) {
+                    window.alert("hmmm... Something isn't right with your passwords.. Let's try entering them again");
+                    console.log("this shouldn't post to db")
                 } else {
                     console.log("this shouldn't post to db")
                 }
 
             })
 
-            //props.history.push("/")
+            
 
         }
     };
-
-    // else if (newUser.password !== newUser.rePassword) {
-    //     window.alert("hmmm... Something isn't right with your passwords.. Let's try entering them again");
-    //}
-
-    //   const handleLogin = (e) => {
-
-    //     e.preventDefault();
-
-    //     sessionStorage.setItem(
-    //       "newUser",
-    //       JSON.stringify(newUser)
-    //     );
-    //     //props.setUser(newUser)
-
-    //     ApiManager.getAll("users").then((users) => {
-    //         users.map((user) => {
-    //             console.log("login db response", user.username, user.password)
-    //             console.log("login newUser", newUser.username, user.password)
-    //             if (user.username === newUser.username && user.password === newUser.password) {
-    //                 console.log("yay")
-    //                   props.setUser(user.id)
-    //             } else {
-    //                 console.log("boo")
-    //             }
-
-    //         })
-
-
-    //     })
-
-
-    //     //props.history.push("/");
-    //   }
 
     return (
         <form onSubmit={handleFieldChange}>
@@ -124,7 +96,6 @@ const Login = props => {
                         required="" />
                     <label htmlFor="rePassword">Let's type that password in one more time</label>
                 </div>
-                {/* <button type="submit">Register</button> */}
                 <button
                     type="submit"
                     disabled={isLoading}
@@ -132,7 +103,6 @@ const Login = props => {
 
                 >Register
                 </button>
-                {console.log("newUser:", newUser)}
             </fieldset>
         </form>
     );
