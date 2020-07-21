@@ -1,0 +1,28 @@
+
+.home__list__container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.home__list__top {
+    width: 100%;
+    background-color: teal;
+    height: 22rem;
+}
+.home__list__bottom {
+    width: 100%;
+    background-color: beige;
+    height: 22rem;
+}
+
+.home__list__item__top {
+    width: 20%;
+    height: 20rem;
+    overflow: hidden;
+}
+.home__list__item__bottom {
+    width: 20%;
+    height: 20rem;
+    overflow: hidden;
+}
