@@ -3,11 +3,20 @@ import React from 'react'
 
 const MessageCard = props => {
 
-
     return(
-        <div>
-
-        </div>
+        <section>
+            <div>
+                <strong>
+                    {props.message.userId}
+                </strong>
+            </div>
+            <p>
+                {props.convertTime(props.message.timeStamp)}
+            </p>
+            <p>
+                {props.message.content}
+            </p>
+        </section>
     )
 }
 

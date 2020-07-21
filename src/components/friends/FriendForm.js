@@ -7,7 +7,6 @@ const FriendForm = (props) => {
     const [searchItems, setSearchItems] = useState([])
 
     const searchFriend = (input) => {
-        console.log(input.target.value)
         if(input.target.value !== ""){
             ApiManager.searchUsers(input.target.value)
                 .then((results) => {

@@ -29,8 +29,16 @@ const getFriends = () => {
 const getFriendIds = (array) => {
     const friendIds = []
     array.map((friend) => {
-        console.log(friend.user.userId)
+        
     })
+}
+
+const convertTime = (unixTime) => {
+    const date = new Date(unixTime * 1000)
+    
+    const newTime = `${date}`
+    newTime.slice()
+    return newTime
 }
 
 useEffect(() => {
@@ -43,14 +51,19 @@ return (
         <h1>Messages</h1>
         
         <div>
-            {messages.map((message) => {
-                
-                }
-
+            {messages.map(message => 
+                    <MessageCard 
+                        key={message.id}
+                        message={message}
+                        friends={friends}
+                        convertTime={convertTime}
+                        {...props}
+                    />
             )}
         </div>
-        {console.log(messages)}
-        {console.log(friends)}
+
+        <div>
+        </div>
     </div>
 )
 
