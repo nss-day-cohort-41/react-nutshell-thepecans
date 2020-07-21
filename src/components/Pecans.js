@@ -8,7 +8,7 @@ const Pecans = () => {
     
     // Temporary "login"
 
-    sessionStorage.setItem("credentials", "1")
+    //sessionStorage.setItem("credentials", "1")
     
     const isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
 
