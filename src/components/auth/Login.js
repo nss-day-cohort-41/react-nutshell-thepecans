@@ -16,11 +16,10 @@ const Login = props => {
 
     e.preventDefault();
 
-    sessionStorage.setItem(
-      "credentials",
-      JSON.stringify(credentials)
-    );
-    //props.setUser(credentials)
+    // sessionStorage.setItem(
+    //   "credentials",
+    //   JSON.stringify(credentials)
+    // );
 
     ApiManager.getAll("users").then((users) => {
       let badLogin
@@ -34,8 +33,8 @@ const Login = props => {
         if (user.username === credentials.username && user.password === credentials.password) {
           badLogin = false
           console.log("yay! badlogin is", badLogin)
+          props.setUser(user)
           props.history.push("/");
-          props.setUser(user.id)
           console.log("userId", user.id)
           console.log("7?")
         } else {
@@ -73,6 +72,7 @@ const Login = props => {
           <label htmlFor="inputPassword">Password</label>
         </div>
         <button type="submit">Sign in</button>
+        <button type="button" onClick={() => props.history.push(`/registrationform`)}>Create New User</button>
       </fieldset>
     </form>
   );
