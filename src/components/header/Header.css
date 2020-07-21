@@ -6,22 +6,31 @@ header {
     margin: 0;
     box-sizing: border-box;
     padding: 1rem;
+    color: white;
 }
 
-.site-logo {
+.site-title {
     flex: 1;
+}
+
+.site-title h1 {
+    font-weight: normal;
+    font-size: 1.9rem;
+    text-align: right;
 }
 
 .navbar {
     flex: 4;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .navbar ul {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    align-items: flex-end;
+    align-items: center;
     margin-bottom: 0;
 }
 
@@ -30,6 +39,32 @@ header {
     text-align: center;
 }
 
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.4rem;
+}
+
+.navbar a:hover {
+    color: var(--light-blue);
+}
+
 .current-user {
     flex: 1;
+    text-align: right;
+}
+
+.current-user h2 {
+    font-weight: normal;
+    font-size: 1.3rem;
+    margin: 1rem 0 .2rem;
+}
+
+.loginlogout {
+    padding: 0;
+    font-size: .9rem;
+}
+
+.loginlogout:hover {
+    color: var(--light-blue)
 }

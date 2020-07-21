@@ -65,7 +65,7 @@ const Header = props => {
             <div className="current-user">
                 {props.hasUser
                 ? <>
-                    <h2>Welcome, user!</h2>
+                    <h2>Welcome, {sessionStorage.getItem("username")}!</h2>
                     <div className="loginlogout" onClick={handleLogout}>
                         Logout
                     </div>

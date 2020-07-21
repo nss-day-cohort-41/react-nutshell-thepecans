@@ -16,7 +16,8 @@ const Pecans = () => {
   const [hasUser, setHasUser] = useState(isAuthenticated());
 
   const setUser = user => {
-    sessionStorage.setItem("credentials", JSON.stringify(user));
+    sessionStorage.setItem("credentials", user.id);
+    sessionStorage.setItem("username", user.username)
     setHasUser(isAuthenticated());
   };
 
