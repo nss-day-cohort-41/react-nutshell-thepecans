@@ -55,5 +55,13 @@ export default {
                 return randomObject.id;
             });
     },
+    getFriends(id) {
+        return fetch(`${remoteURL}/friends?activeUserId=${id}&_expand=user`)
+            .then(data => data.json())
+    },
+    searchUsers(searchInput) {
+        return fetch(`${remoteURL}/users?username_like=${searchInput}`)
+            .then(data => data.json())
+    }
 
 }
