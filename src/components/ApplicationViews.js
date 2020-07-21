@@ -14,6 +14,7 @@ import EventList from "./events/EventList"
 import EventForm from "./events/EventForm"
 import EditEventForm from "./events/EditEventForm"
 import Login from "./auth/Login"
+import RegistrationForm from "./auth/RegistrationForm"
 
 const ApplicationViews = (props) => {
     const hasUser = props.hasUser;
@@ -29,6 +30,9 @@ const ApplicationViews = (props) => {
             />     
             <Route path="/login" render={props => {
                 return <Login setUser={setUser} {...props} />
+            }} />
+            <Route path="/RegistrationForm" render={props => {
+                return <RegistrationForm {...props} />
             }} />
          {/* article related routes  */}
          <Route
