@@ -37,7 +37,8 @@ const FriendForm = (props) => {
             </fieldset>
             {searchItems.map(item => 
                 
-                <div className="searchList">         
+                
+                <div className="searchList">   
                     <p>
                         {item.username}
                     </p>
