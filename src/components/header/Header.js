@@ -30,7 +30,7 @@ const Header = props => {
                     </li>
                     <li>
                         <NavLink className="nav-link" activeClassName="hidden" exact to="/messages">
-                            Articles
+                            Messages
                         </NavLink>
                     </li>
                     <li>
@@ -51,10 +51,12 @@ const Header = props => {
                 </ul>
                 <div className="current-user">
                     {props.hasUser
-                    ? <h2>Welcome, user!</h2>
+                    ? <>
+                        <h2>Welcome, user!</h2>
                         <div className="loginlogout" onClick={handleLogout}>
                             Logout
                         </div>
+                    </>
                     : <div>
                         <NavLink className="loginlogout" to="/login">
                         Login
