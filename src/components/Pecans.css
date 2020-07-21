@@ -41,3 +41,38 @@ body, .section--button, .card--button {
 .card--button:hover, .section--button:hover {
     color: var(--purple);
 }
+
+/* Forms */
+form {
+    width: 70%;
+    margin: 1rem auto;
+    display: flex;
+    flex-direction: column;
+}
+
+fieldset {
+    background-color: white;
+    border: 2px solid var(--blue);
+}
+
+form input {
+    display: block;
+    margin: .5rem auto 0 ;
+    width: 80%;
+    height: 30px;
+    border: 2px solid var(--purple);
+    border-radius: 3px;
+    letter-spacing: 1px;
+}
+
+form label {
+    font-size: .8rem;
+    margin: 0 10% .5rem;
+}
+
+/* General */
+
+body {
+    background-color: var(--purple);
+}
+

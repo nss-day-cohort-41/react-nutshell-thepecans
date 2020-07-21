@@ -48,7 +48,7 @@ const ArticleList = (props) => {
     return (
         <>
             <section className="section-content">
-                <button type="button" className="section--button" 
+                <button type="button" className="articleSection--button" 
                     onClick={() => {props.history.push("/articles/new")}}>&#65291; Add Article
                 </button>
             <div className="article--list">

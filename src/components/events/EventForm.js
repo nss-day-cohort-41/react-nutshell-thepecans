@@ -62,6 +62,7 @@ const EventForm = props => {
                     <div className="button">
                         <button
                             type="button"
+                            className="section--button"
                             disabled={isLoading}
                             onClick={constructNewEvent}
                         >Submit</button>
