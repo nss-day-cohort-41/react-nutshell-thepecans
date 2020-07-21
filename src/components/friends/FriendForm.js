@@ -38,7 +38,7 @@ const FriendForm = (props) => {
             {searchItems.map(item => 
                 
                 
-                <div className="searchList">   
+                <div key={item.id} className="searchList">   
                     <p>
                         {item.username}
                     </p>
