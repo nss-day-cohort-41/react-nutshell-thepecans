@@ -13,7 +13,6 @@ const FriendCard = props => {
                 >
                     Unfriend
                 </button>
-                <button type="button">Details</button> 
             </div>
             
         </>

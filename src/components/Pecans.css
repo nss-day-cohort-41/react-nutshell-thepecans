@@ -5,12 +5,14 @@
 :root {
     --purple: #E2DFE0;
     --light-blue: #BACACC;
-    --blue: #7DA2A8;
+    --blue: #6C979D;
 }
 
 /* Fonts */
 body, .section--button, .card--button {
     font-family: 'Heebo', sans-serif;
+    padding: 0;
+    margin: 0;
 }
 
 
@@ -76,3 +78,6 @@ body {
     background-color: var(--purple);
 }
 
+.hidden {
+    display: none;
+}
