@@ -13,57 +13,70 @@ const Header = props => {
 
     return (
         <header>
+
             <div className="site-title">
                 <h1>Nutshell</h1>
             </div>
-            <nav>
-                <ul className="navbar">
+
+            <nav className="navbar">
+                {console.log(props.hasUser)}
+                <ul>
                     <li>
                         <NavLink className="nav-link" activeClassName="hidden" exact to="/">
                             Dashboard
                         </NavLink>
                     </li>
-                    <li>
-                        <NavLink className="nav-link" activeClassName="hidden" exact to="/friends">
-                            Friends
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink className="nav-link" activeClassName="hidden" exact to="/messages">
-                            Messages
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink className="nav-link" activeClassName="hidden" exact to="/events">
-                            Events
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink className="nav-link" activeClassName="hidden" exact to="/articles">
-                            Articles
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink className="nav-link" activeClassName="hidden" exact to="/tasks">
-                            Tasks
-                        </NavLink>
-                    </li>
+                    {(props.location.pathname !== "/" && props.hasUser)
+                    && <>
+                        {(props.location.pathname !== "/friends")
+                            && <li>
+                            <NavLink className="nav-link" activeClassName="hidden" exact to="/friends">
+                                Friends
+                            </NavLink>
+                        </li>}
+                        {(props.location.pathname !== "/messages")
+                        && <li>
+                            <NavLink className="nav-link" activeClassName="hidden" exact to="/messages">
+                                Messages
+                            </NavLink>
+                        </li>}
+                        {(props.location.pathname !== "/events")
+                        && <li>
+                            <NavLink className="nav-link" activeClassName="hidden" exact to="/events">
+                                Events
+                            </NavLink>
+                        </li>}
+                        {(props.location.pathname !== "/articles")
+                        && <li>
+                            <NavLink className="nav-link" activeClassName="hidden" exact to="/articles">
+                                Articles
+                            </NavLink>
+                        </li>}
+                        {(props.location.pathname !== "/tasks")
+                        && <li>
+                            <NavLink className="nav-link" activeClassName="hidden" exact to="/tasks">
+                                Tasks
+                            </NavLink>
+                        </li>}
+                    </> }
                 </ul>
-                <div className="current-user">
-                    {props.hasUser
-                    ? <>
-                        <h2>Welcome, user!</h2>
-                        <div className="loginlogout" onClick={handleLogout}>
-                            Logout
-                        </div>
-                    </>
-                    : <div>
-                        <NavLink className="loginlogout" to="/login">
-                        Login
-                    </NavLink>
-                    </div>}
-                </div>
             </nav>
+
+            <div className="current-user">
+                {props.hasUser
+                ? <>
+                    <h2>Welcome, user!</h2>
+                    <div className="loginlogout" onClick={handleLogout}>
+                        Logout
+                    </div>
+                </>
+                : <div>
+                    <NavLink className="loginlogout" to="/login">
+                    Login
+                </NavLink>
+                </div>}
+            </div>
+
         </header>
     )
 }

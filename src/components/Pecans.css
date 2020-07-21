@@ -76,3 +76,6 @@ body {
     background-color: var(--purple);
 }
 
+.hidden {
+    display: none;
+}
