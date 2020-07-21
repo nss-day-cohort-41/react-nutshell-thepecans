@@ -10,7 +10,15 @@ const FriendForm = (props) => {
         console.log(input.target.value)
         if(input.target.value !== ""){
             ApiManager.searchUsers(input.target.value)
-                .then(results => setSearchItems(results))
+                .then((results) => {
+                    const arr = []
+                    results.map((user) => {
+                        if(user.id !== parseInt(sessionStorage.credentials)) {
+                            arr.push(user)
+                        }
+                    })
+                    return arr
+                }).then(results => setSearchItems(results))
         }
 
     }
@@ -23,7 +31,7 @@ const FriendForm = (props) => {
                 <input
                     type="text"
                     id="friendName"
-                    placeholder="ex. Jane Doe"
+                    placeholder="ex. Bjork"
                     onChange={searchFriend}
                 />                
             </fieldset>
