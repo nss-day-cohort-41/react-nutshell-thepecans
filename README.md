@@ -1,68 +1,22 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Nutshell
+## by Team Pecans
 
-## Available Scripts
+Team Pecans is:
+- David Larsen (events, articles, header/navigation, readme)
+- John Hester (friends list, messages)
+- Brendan Abernathy (tasks, login, homepage)
 
-In the project directory, you can run:
+### Description
 
-### `npm start`
+Nutshell is a social media platform where users can share messages, articles, and events, as well as keep track of a task checklist. Once registered and logged in, the user will be presented with information about these items, as well as their list of friends. Messages are visible from all users across the website. If a user's friends have articles or events they have shared, those will be visible as well. Aside from the dashboard view, each item can be viewed on its own via the navigation bar.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Instructions
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+To install and run the app:
+1. Clone the repository to your local machine
+2. From the cloned directory, type ```npm start .```
+3. Serve a database from the ```api``` folder in JSON-Server using port 5002. An ```example.json``` file is included in the repo.
+4. Navigate to the app in your web browser. Default address is ```localhost:3000```
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### Support
+For any questions, please contact any member of Team Pecans on GitHub.
