@@ -19,32 +19,42 @@ const Login = props => {
         } else {
             setIsLoading(true);
             // Create the task and redirect user to task list
-
+            //current problem in case I have to stop working for the evening.  this is creating a user on each iteration of the map...it will creat as many new users as there are current users...
+            let badWolf = false
             ApiManager.getAll("users").then((users) => {
+                
                 users.map((user) => {
                     console.log("login db response", user.username, user.password)
                     console.log("login credentials", newUser.username, newUser.email)
                     if (user.username === newUser.username || user.email === newUser.email) {
                         console.log("oh no!")
                         window.alert("Username or email is unavailable");
-                    }else {
+                    badWolf = true
+                    console.log("badWolf", badWolf)
+                        return badWolf
+
+                    } else if (user.username !== newUser.username || user.email !== newUser.email) {
                         console.log("yay, it's available!")
-                        ApiManager.addObject("users", newUser)
-                            .then(() => props.history.push("/"));
                     }
 
                 })
 
 
             })
+            if (badWolf === true) {
+                ApiManager.addObject("users", newUser)
+                    .then(() => props.history.push("/"));
+            } else {
+                console.log("this shouldn't post to db")
+            }
 
 
         }
     };
-     
-                    // else if (newUser.password !== newUser.rePassword) {
-                    //     window.alert("hmmm... Something isn't right with your passwords.. Let's try entering them again");
-                    //}
+
+    // else if (newUser.password !== newUser.rePassword) {
+    //     window.alert("hmmm... Something isn't right with your passwords.. Let's try entering them again");
+    //}
 
     //   const handleLogin = (e) => {
 
@@ -82,12 +92,12 @@ const Login = props => {
                 <h2>New?</h2>
                 <h3>Sign up Below:</h3>
                 <div className="formgrid">
-                    <input 
-                    onChange={handleFieldChange}
-                     type="username"
+                    <input
+                        onChange={handleFieldChange}
+                        type="username"
                         id="username"
                         placeholder="username"
-                        required  />
+                        required />
                     <label htmlFor="inputUsername">Username</label>
                     <input onChange={handleFieldChange} type="email"
                         id="email"
@@ -110,8 +120,8 @@ const Login = props => {
                 <button
                     type="submit"
                     disabled={isLoading}
-                    onClick={constructNewUser, console.log("constructNewUser")}
-                
+                    onClick={constructNewUser}
+
                 >Register
                 </button>
                 {console.log("newUser:", newUser)}
