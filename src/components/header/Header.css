@@ -1,3 +1,6 @@
+/* Nutshell logo font */
+@import url('https://fonts.googleapis.com/css2?family=MuseoModerno:wght@600&display=swap');
+
 header {
     display: flex;
     flex-direction: row;
@@ -11,12 +14,20 @@ header {
 
 .site-title {
     flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.site-title img {
+    width: 75%;
+    vertical-align: middle;
 }
 
 .site-title h1 {
-    font-weight: normal;
+    font-family: 'MuseoModerno', cursive;
     font-size: 1.9rem;
     text-align: right;
+    display: inline;
 }
 
 .navbar {

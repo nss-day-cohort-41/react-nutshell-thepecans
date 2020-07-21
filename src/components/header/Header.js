@@ -15,7 +15,8 @@ const Header = props => {
         <header>
 
             <div className="site-title">
-                <h1>Nutshell</h1>
+                <img src={require("../images/pecan.png")} alt="nutshell logo" />
+                <h1>nutshell</h1>
             </div>
 
             <nav className="navbar">
