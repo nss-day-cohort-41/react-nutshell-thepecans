@@ -9,12 +9,11 @@ const FriendList = props => {
 
     const [friends, setFriends] = useState([]) 
 
+    const getAndSetFriends = () => {
+        return ApiManager.getFriends(sessionStorage.credentials)
+                .then(results => setFriends(results))
+    }
 
-
-    useEffect(() => {
-        ApiManager.getFriends(sessionStorage.credentials)
-            .then(results => setFriends(results))
-    }, [friends] )
 
 // creates relationship object in friend
     const addFriend = (id) => {
@@ -24,21 +23,21 @@ const FriendList = props => {
         }
         
         ApiManager.addObject('friends', newFriend)
-            .then(ApiManager.getFriends(sessionStorage.credentials)
-                    .then(results => setFriends(results)))
+            .then(getAndSetFriends)
 
     }
-
-
 
 // activates onClick of remove button on FriendCard
     const removeFriend = id => {
         ApiManager.deleteObject('friends', id)
-            .then(ApiManager.getFriends(sessionStorage.credentials)
-                            .then(results => setFriends(results))
-                )
+            .then(getAndSetFriends)
 
     }
+
+
+    useEffect(() => {
+        getAndSetFriends()
+      },[] )
    
 
     return (

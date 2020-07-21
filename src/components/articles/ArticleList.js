@@ -19,7 +19,7 @@ const ArticleList = (props) => {
             return friendsArray.some(friend => friend.userId === article.userId)
         })
         // Sort article list in descending order
-        const sortedArticles = relevantArticles.sort((article1, article2) => new Date(article2.date) - new Date(article1.date))
+        const sortedArticles = relevantArticles.sort((article1, article2) => new Date(article2.timestamp) - new Date(article1.timestamp))
         setArticles(sortedArticles)
     }
 
