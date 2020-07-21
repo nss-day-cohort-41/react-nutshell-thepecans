@@ -14,11 +14,15 @@ const Home = (props) => {
                 <div className="home__list__container">
                     <div className="home__list__top">
                         <div className="home__list__item__top">
-                            <h3 className="hli__header">Friends</h3>
+                            <div className="hli__header">
+                                <h3>Friends</h3>
+                            </div>
                             <FriendList {...props} />
                         </div>
                         <div className="home__list__item__top">
-                            <h3 className="hli__header">Articles</h3>
+                            <div className="hli__header">
+                                <h3>Articles</h3>
+                            </div>
                             <ArticleList {...props} />
                         </div>
                     </div>
@@ -26,16 +30,22 @@ const Home = (props) => {
 
                     <div className="home__list__bottom">
                         <div className="home__list__item__bottom">
-                            <h3 className="hli__header">Tasks</h3>
+                            <div className="hli__header">
+                                <h3>Tasks</h3>
+                            </div>
                             <TaskList {...props} />
                         </div>
 
                         <div className="home__list__item__bottom">
-                            <h3 className="hli__header">Events</h3>
+                            <div className="hli__header">
+                                <h3>Events</h3>
+                            </div>
                             <EventList {...props} />
                         </div>
                         <div className="home__list__item__bottom">
-                            <h3 className="hli__header">Messages</h3>
+                            <div className="hli__header">
+                                <h3>Messages</h3>
+                            </div>
                             <p>messages will go here...</p>
                         </div>
                     </div>
