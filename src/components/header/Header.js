@@ -20,7 +20,7 @@ const Header = props => {
             </div>
 
             <nav className="navbar">
-                {console.log(props.hasUser)}
+                
                 <ul>
                     <li>
                         <NavLink className="nav-link" activeClassName="hidden" exact to="/">
