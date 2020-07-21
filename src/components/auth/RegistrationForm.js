@@ -58,7 +58,7 @@ const Login = props => {
                 } else {
                     console.log("this shouldn't post to db")
                 }
-
+                setIsLoading(false)
             })
 
             
