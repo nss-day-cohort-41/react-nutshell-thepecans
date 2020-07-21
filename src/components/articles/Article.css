@@ -2,19 +2,21 @@
 
 .article--list {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: flex-start;
     width: 100%;
     margin: 0 auto;
 }
 
 .article-card {
+    background-color: white;
     display: flex;
     flex-direction: column;
-    width: 60%;
+    width: 25%;
     padding: 1.5rem 1.5rem .5rem;
     border: 1px solid var(--light-blue);
-    margin: 0 auto;
+    margin: 0 auto 2rem;
 }
 
 .article--title {
@@ -35,6 +37,16 @@
     margin: .5rem 0 0;
 }
 
+.articleSection--button {
+    margin: 1rem 3% 1rem;
+    border: 2px solid var(--blue);
+    background-color: white;
+    border-radius: 3px;
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+    height: 30px;
+    padding: 0 10px;
+}
 
 .article--buttons {
     flex: 1;
@@ -42,6 +54,8 @@
     flex-direction: column;
     align-items: flex-end;
     padding: 0 2rem 0 0;
+    margin: 0 auto;
+    width: 100%
 }
 
 .article--friend {

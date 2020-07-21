@@ -9,6 +9,7 @@
 }
 
 .item-card {
+    background-color: white;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -81,4 +82,8 @@
 .event--friend {
     background-color: cornsilk;
     font-style: italic;
+}
+
+.event--friend .event--description {
+    flex: 3;
 }
