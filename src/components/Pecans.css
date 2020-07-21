@@ -11,6 +11,8 @@
 /* Fonts */
 body, .section--button, .card--button {
     font-family: 'Heebo', sans-serif;
+    padding: 0;
+    margin: 0;
 }
 
 
