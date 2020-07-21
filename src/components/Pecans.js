@@ -6,8 +6,11 @@ import ApplicationViews from "./ApplicationViews"
 import "./Pecans.css"
 
 const Pecans = () => {
+    
+  // Temporary "login"
+
+  //sessionStorage.setItem("credentials", "1")
   
-  sessionStorage.setItem("credentials", "1")
   const isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
 
   const [hasUser, setHasUser] = useState(isAuthenticated());
