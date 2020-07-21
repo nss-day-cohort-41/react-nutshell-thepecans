@@ -27,39 +27,36 @@ const Header = props => {
                             Dashboard
                         </NavLink>
                     </li>
-                    {(props.location.pathname !== "/" && props.hasUser)
-                    && <>
                         {(props.location.pathname !== "/friends")
                             && <li>
                             <NavLink className="nav-link" activeClassName="hidden" exact to="/friends">
                                 Friends
                             </NavLink>
-                        </li>}
-                        {(props.location.pathname !== "/messages")
-                        && <li>
-                            <NavLink className="nav-link" activeClassName="hidden" exact to="/messages">
-                                Messages
-                            </NavLink>
-                        </li>}
-                        {(props.location.pathname !== "/events")
-                        && <li>
-                            <NavLink className="nav-link" activeClassName="hidden" exact to="/events">
-                                Events
-                            </NavLink>
-                        </li>}
-                        {(props.location.pathname !== "/articles")
-                        && <li>
-                            <NavLink className="nav-link" activeClassName="hidden" exact to="/articles">
-                                Articles
-                            </NavLink>
-                        </li>}
-                        {(props.location.pathname !== "/tasks")
-                        && <li>
-                            <NavLink className="nav-link" activeClassName="hidden" exact to="/tasks">
-                                Tasks
-                            </NavLink>
-                        </li>}
-                    </> }
+                    </li>}
+                    {(props.location.pathname !== "/messages")
+                    && <li>
+                        <NavLink className="nav-link" activeClassName="hidden" exact to="/messages">
+                            Messages
+                        </NavLink>
+                    </li>}
+                    {(props.location.pathname !== "/events")
+                    && <li>
+                        <NavLink className="nav-link" activeClassName="hidden" exact to="/events">
+                            Events
+                        </NavLink>
+                    </li>}
+                    {(props.location.pathname !== "/articles")
+                    && <li>
+                        <NavLink className="nav-link" activeClassName="hidden" exact to="/articles">
+                            Articles
+                        </NavLink>
+                    </li>}
+                    {(props.location.pathname !== "/tasks")
+                    && <li>
+                        <NavLink className="nav-link" activeClassName="hidden" exact to="/tasks">
+                            Tasks
+                        </NavLink>
+                    </li>}
                 </ul>
             </nav>
 
