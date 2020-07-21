@@ -1,6 +1,6 @@
 // Header and navbar by David Larsen
 
-import React, { useState } from "react"
+import React from "react"
 import {NavLink, withRouter } from "react-router-dom"
 import "./Header.css"
 
