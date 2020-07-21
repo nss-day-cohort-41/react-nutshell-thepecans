@@ -83,3 +83,7 @@
     background-color: cornsilk;
     font-style: italic;
 }
+
+.event--friend .event--description {
+    flex: 3;
+}
