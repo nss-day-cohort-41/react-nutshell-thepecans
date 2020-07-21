@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import CompletedTaskCard from './completedTaskCard';
 import ApiManager from '../../modules/ApiManager';
+import "./Tasks.css"
 
 
 const activeUserId = sessionStorage.getItem("credentials")
@@ -32,22 +33,19 @@ const CompletedTaskList = (props) => {
   
     return (
         <>
-            <div className="container-cards">
+            <div className="task--list">
                 <button type="button"
-                    className="btn"
+                    className="section--button"
                     onClick={() => { props.history.push("/tasks/new") }}>
                     Add Task
                 </button>
                 <button type="button"
-                    className="btn"
+                    className="section--button"
                     onClick={() => { props.history.push("/tasks") }}>
                     view incomplete tasks
                 </button>
                 {tasks.map(task => task.complete && <CompletedTaskCard key={task.id} task={task} deleteTask={deleteTask} editTask={editTask} activeUserId={activeUserId} {...props} />)}
             </div>
-            <section className="section-content">
-
-            </section>
         </>
     );
 };
