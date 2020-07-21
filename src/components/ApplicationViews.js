@@ -146,7 +146,11 @@ const ApplicationViews = (props) => {
             <Route 
                 path="/messages"
                 render={props => {
-                    return <MessageList {...props}/>
+                    if (hasUser) {
+                        return <MessageList {...props} />
+                    } else {
+                        return <Redirect to="/login" />
+                    }
                 }}
             />
             {/* <Route path="/tasks" render={(props) => {
