@@ -5,10 +5,11 @@ const FriendCard = props => {
 
     return (
         <>
-            <div className='card'>
+            <div className='friend--card'>
                 <h3>{props.friend.user.username}</h3>
                 <button 
                     type="button"
+                    className="card--button"
                     onClick={() => props.removeFriend(props.friend.id)}
                 >
                     Unfriend

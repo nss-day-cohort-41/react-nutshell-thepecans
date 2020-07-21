@@ -44,6 +44,7 @@ const FriendForm = (props) => {
                     <button
                         type="button"
                         id="addUser"
+                        className="friendSearch--button"
                         onClick={() => props.addFriend(item.id)}
                     >
                         + add

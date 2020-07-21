@@ -1,26 +1,38 @@
-/* body {
-    background-color: rgb(74, 65, 42);
-} */
-
 .card__container{
     display: flex;
     flex-flow: row wrap;
 }
 
-/* .card {
-    background-color: cornsilk;
-    width: 30%;
-    border: 1px black solid;
-    margin: .5rem;
-    padding: .2rem;
-    border-radius: 5px;
-    flex-flow: column;
-} */
+.friend--card {
+    background-color: white;
+    border: 1px solid var(--light-blue);
+    flex: 1;
+    max-width: 500px;
+    margin: 1rem 2rem 1rem 1rem;
+    padding: .5rem 1.5rem;
+}
 
 .friendSearch {
-    background-color: cornsilk;
-    border: 1px black solid;
+    background-color: white;
+    border: 1px solid var(--blue);
     border-radius: 5px;
+    width: 100%;
+    font-size: .8rem;
+}
+
+.friendSearch--button {
+    margin: 0 1rem;
+    border: 2px solid var(--blue);
+    background-color: white;
+    border-radius: 3px;
+    font-size: .8rem;
+    letter-spacing: 1.5px;
+    height: 24px;
+    padding: 0 8px;
+}
+
+.friendSearch fieldset {
+    border: none;
 }
 
 .friendSearch label {
@@ -30,9 +42,7 @@
 
 .searchList {
     display: flex;
-    
-}
-
-.searchList button {
-    margin: .2rem;
+    align-items: center;
+    background-color: white;
+    margin: 0 2rem;
 }
