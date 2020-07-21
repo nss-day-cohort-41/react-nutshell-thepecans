@@ -15,22 +15,22 @@ const Login = props => {
     const constructNewUser = evt => {
         evt.preventDefault();
         if (newUser.username === "" || newUser.email === "" || newUser.password === "") {
-            window.alert("Please input an task title and expectCompleteBy");
+            window.alert("Please fill out all fields");
         } else {
             setIsLoading(true);
-            // Create the task and redirect user to task list
-            //current problem in case I have to stop working for the evening.  this is creating a user on each iteration of the map...it will creat as many new users as there are current users...
+            
             let badWolf = false
             ApiManager.getAll("users").then((users) => {
-                
+
                 users.map((user) => {
                     console.log("login db response", user.username, user.password)
                     console.log("login credentials", newUser.username, newUser.email)
                     if (user.username === newUser.username || user.email === newUser.email) {
                         console.log("oh no!")
                         window.alert("Username or email is unavailable");
-                    badWolf = true
-                    console.log("badWolf", badWolf)
+                        console.log("newuser.username:", newUser.username, "user.username:", user.username)
+                        badWolf = true
+                        console.log("badWolf", badWolf)
                         return badWolf
 
                     } else if (user.username !== newUser.username || user.email !== newUser.email) {
@@ -38,16 +38,16 @@ const Login = props => {
                     }
 
                 })
-
+                if (badWolf === false) {
+                    ApiManager.addObject("users", newUser)
+                        .then(() => console.log("added user"));
+                } else {
+                    console.log("this shouldn't post to db")
+                }
 
             })
-            if (badWolf === true) {
-                ApiManager.addObject("users", newUser)
-                    .then(() => props.history.push("/"));
-            } else {
-                console.log("this shouldn't post to db")
-            }
 
+            //props.history.push("/")
 
         }
     };
