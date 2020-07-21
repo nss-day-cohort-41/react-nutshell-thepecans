@@ -24,20 +24,20 @@ const TaskCard = (props) => {
     return (
 
         <div className="card">
-            <div className="card-content">
-
-                <h2>{props.task.title}</h2>
+            <div className="task--card">
+                <h2 className="task--name">{props.task.title}</h2>
                 <p>Needs to be completed by: {taskDate}</p>
                 <p>status: {props.task.complete ? 'complete' : 'incomplete'}</p>
                 <input
                     type="checkbox"
                     name="complete"
-                    onChange={() => props.editTask(completedTask)}>
-                        
+                    onChange={() => props.editTask(completedTask)}>                        
                 </input>
                 <label htmlFor="complete"> Check the box to mark as complete</label>
+                <br />
                 <button
                     type="button"
+                    className="card--button"
                     onClick={() => props.deleteTask(props.task.id)}>
                         Remove task
                 </button>

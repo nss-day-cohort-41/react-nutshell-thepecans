@@ -14,7 +14,6 @@ const FriendCard = props => {
                 >
                     Unfriend
                 </button>
-                <button type="button" className="card--button">Details</button> 
             </div>
             
         </>
