@@ -19,7 +19,7 @@ const ArticleList = (props) => {
             return friendsArray.some(friend => friend.userId === article.userId)
         })
         // Sort article list in descending order
-        const sortedArticles = relevantArticles.sort((article1, article2) => new Date(article2.date) - new Date(article1.date))
+        const sortedArticles = relevantArticles.sort((article1, article2) => new Date(article2.timestamp) - new Date(article1.timestamp))
         setArticles(sortedArticles)
     }
 
@@ -48,7 +48,7 @@ const ArticleList = (props) => {
     return (
         <>
             <section className="section-content">
-                <button type="button" className="section--button" 
+                <button type="button" className="articleSection--button" 
                     onClick={() => {props.history.push("/articles/new")}}>&#65291; Add Article
                 </button>
             <div className="article--list">
