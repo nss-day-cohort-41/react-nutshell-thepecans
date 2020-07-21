@@ -1,6 +1,6 @@
 // Initial file created by David Larsen
 
-import { Route } from "react-router-dom"
+import { Route, Redirect } from "react-router-dom"
 import React from "react"
 import Home from './home/Home.js'
 import ArticleList from "./articles/ArticleList"
@@ -25,58 +25,90 @@ const ApplicationViews = (props) => {
             <Route 
                 exact path="/"
                 render={props => {
-                    return <Home {...props}/>
+                    if (hasUser) {
+                        return <Home />
+                    } else {
+                        return <Redirect to="/login" />
+                }
                 }}
             />     
             <Route path="/login" render={props => {
                 return <Login setUser={setUser} {...props} />
             }} />
             <Route path="/RegistrationForm" render={props => {
-                return <RegistrationForm {...props} />
+                return <RegistrationForm setUser={setUser} {...props} />
             }} />
-         {/* article related routes  */}
-         <Route
+            {/* article related routes  */}
+            <Route
                 exact path="/articles"
                 render={props => {
-                    return <ArticleList {...props} />
+                    if (hasUser) {
+                        return <ArticleList {...props} />
+                    } else {
+                        return <Redirect to="/login" />
+                    }
                 }}
             />
             <Route
                 path="/articles/new"
                 render={props => {
-                    return <ArticleForm {...props} />
+                    if (hasUser) {
+                        return <ArticleForm {...props} />
+                    } else {
+                        return <Redirect to="/login" />
+                    }
                 }}
             />
             <Route
                 path="/articles/:articleId(\d+)/edit"
                 render={props => {
-                    return <EditArticleForm {...props} />
+                    if (hasUser) {
+                        return <EditArticleForm {...props} />
+                    } else {
+                        return <Redirect to="/login" />
+                    }
                 }}
             />
             {/* event related routes  */}
             <Route
                 exact path="/events"
                 render={props => {
-                    return <EventList {...props} />
+                    if (hasUser) {
+                        return <EventList {...props} />
+                    } else {
+                        return <Redirect to="/login" />
+                    }
                 }}
             />
             <Route
                 path="/events/new"
                 render={props => {
-                    return <EventForm {...props} />
+                    if (hasUser) {
+                        return <EventForm {...props} />
+                    } else {
+                        return <Redirect to="/login" />
+                    }
                 }}
             />
             <Route
                 path="/events/:eventId(\d+)/edit"
                 render={props => {
-                    return <EditEventForm {...props} />
+                    if (hasUser) {
+                        return <EditEventForm {...props} />
+                    } else {
+                        return <Redirect to="/login" />
+                    }
                 }}
             />
         {/* friend related routes  */}
             <Route 
                 path="/friends"
                 render={props => {
-                    return <FriendList {...props} />
+                    if (hasUser) {
+                        return <FriendList {...props} />
+                    } else {
+                        return <Redirect to="/login" />
+                    }
                 }}
             />
 
@@ -84,24 +116,31 @@ const ApplicationViews = (props) => {
                 exact
                 path="/tasks"
                 render={props => {
-                    return <TaskList {...props} />
+                    if (hasUser) {
+                        return <TaskList {...props} />
+                    } else {
+                        return <Redirect to="/login" />
+                    }
                 }}
             />
             <Route
                 exact
                 path="/completedTasks"
                 render={props => {
+                    if (hasUser) {
                     return <CompletedTaskList {...props} />
+                    } else {
+                        return <Redirect to="/login" />
+                    }
                 }}
             />
             <Route path="/tasks/new" render={(props) => {
-                return <TaskForm {...props} />
+                if (hasUser) {
+                    return <TaskForm {...props} />
+                } else {
+                    return <Redirect to="/login" />
+                }
             }} />
-
-            {/* <Route path="/tasks" render={(props) => {
-                return <TaskCheckbox {...props} />
-            }} /> */}
-
         </>
     )
 }

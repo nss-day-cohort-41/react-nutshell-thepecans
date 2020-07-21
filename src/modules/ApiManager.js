@@ -17,9 +17,6 @@ export default {
     getAll(table, expand) {
         return fetch(`${remoteURL}/${table}/?_expand=${expand}`).then(result => result.json())
     },
-    getFriends(id) {
-        return fetch (`${remoteURL}/friends?activeUserId=${id}`).then(result => result.json())
-    },
     getByUserId(table, id, expand) {
         return fetch(`${remoteURL}/${table}/?userId=${id}&_expand=${expand}`).then(result => result.json())
     },

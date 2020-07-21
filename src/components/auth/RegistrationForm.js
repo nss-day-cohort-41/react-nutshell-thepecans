@@ -48,8 +48,9 @@ const Login = props => {
                 })
                 if (badWolf === false && newUser.password === rePassword) {
                     ApiManager.addObject("users", newUser)
-                        .then(() => {
+                        .then((returnedUser) => {
                             console.log("added user")
+                            props.setUser(returnedUser)
                             props.history.push("/");
                         })
                 }else if (newUser.password !== rePassword) {
