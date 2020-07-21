@@ -11,27 +11,31 @@ const Home = (props) => {
     return (
         <>
             <div className="home__body">
-                <h1>Welcome to nutshell!</h1>
                 <div className="home__list__container">
                     <div className="home__list__top">
                         <div className="home__list__item__top">
+                            <h3 className="hli__header">Friends</h3>
                             <FriendList {...props} />
                         </div>
                         <div className="home__list__item__top">
+                            <h3 className="hli__header">Articles</h3>
                             <ArticleList {...props} />
                         </div>
                     </div>
 
 
                     <div className="home__list__bottom">
-                        <div className="home__list__item">
+                        <div className="home__list__item__bottom">
+                            <h3 className="hli__header">Tasks</h3>
                             <TaskList {...props} />
                         </div>
 
-                        <div className="home__list__item">
+                        <div className="home__list__item__bottom">
+                            <h3 className="hli__header">Events</h3>
                             <EventList {...props} />
                         </div>
-                        <div className="home__list__item">
+                        <div className="home__list__item__bottom">
+                            <h3 className="hli__header">Messages</h3>
                             <p>messages will go here...</p>
                         </div>
                     </div>

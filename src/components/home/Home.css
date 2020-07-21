@@ -1,28 +1,47 @@
+.home__body {
+    padding: 0 1rem;
+}
+.hli__header {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+}
+
 
 .home__list__container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    
 }
 
 .home__list__top {
     width: 100%;
-    background-color: teal;
     height: 22rem;
+    display: flex;
 }
 .home__list__bottom {
     width: 100%;
-    background-color: beige;
     height: 22rem;
+    display: flex;
 }
 
 .home__list__item__top {
-    width: 20%;
+    flex: 1;
     height: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: center;
     overflow: hidden;
+    background-color: cornsilk;
+    margin: 1rem;
 }
 .home__list__item__bottom {
-    width: 20%;
+    flex: 1;
     height: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: flex-start;
     overflow: hidden;
+    background-color: cornsilk;
+    margin: 1rem;
 }

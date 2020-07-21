@@ -26,7 +26,7 @@ const ApplicationViews = (props) => {
                 exact path="/"
                 render={props => {
                     if (hasUser) {
-                        return <Home />
+                        return <Home {...props}/>
                     } else {
                         return <Redirect to="/login" />
                 }
