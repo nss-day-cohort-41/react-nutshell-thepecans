@@ -22,7 +22,7 @@ const CompletedTaskCard = (props) => {
     return (
 
         <div className="card">
-            <div className="card-content">
+            <div className="task--card">
                 <h2>{props.task.title}</h2>
                 <p>Needs to be completed by: {taskDate}</p>
                 <p>status: {props.task.complete ? 'complete' : 'incomplete'}</p>
@@ -35,7 +35,7 @@ const CompletedTaskCard = (props) => {
                 </input>
                 <label htmlFor="incomplete"> Uncheck the box to mark as incomplete</label>
                 <button
-                    type="button"
+                    type="card--button"
                     onClick={() => props.deleteTask(props.task.id)}>
                         Remove task
                 </button>
