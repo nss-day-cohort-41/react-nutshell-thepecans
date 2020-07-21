@@ -5,6 +5,14 @@ import ApiManager from "../../modules/ApiManager"
 const Login = props => {
     const [newUser, setNewUser] = useState({ username: "", email: "", password: "" });
     const [isLoading, setIsLoading] = useState(false);
+    
+    let rePassword = ""
+    const setRePassword = (event) => {
+        rePassword = event.target.value
+        console.log("repassword", rePassword)
+        return rePassword
+    }
+    
 
     // Update state whenever an input field is edited
     const handleFieldChange = (evt) => {
@@ -38,7 +46,7 @@ const Login = props => {
                     }
 
                 })
-                if (badWolf === false) {
+                if (badWolf === false && newUser.password === rePassword) {
                     ApiManager.addObject("users", newUser)
                         .then(() => console.log("added user"));
                 } else {
@@ -98,23 +106,23 @@ const Login = props => {
                         id="username"
                         placeholder="username"
                         required />
-                    <label htmlFor="inputUsername">Username</label>
+                    <label htmlFor="username">Username</label>
                     <input onChange={handleFieldChange} type="email"
                         id="email"
                         placeholder="email"
                         required="" autoFocus="" />
-                    <label htmlFor="inputEmail">Email</label>
+                    <label htmlFor="email">Email</label>
 
                     <input onChange={handleFieldChange} type="password"
                         id="password"
                         placeholder="Password"
                         required="" />
-                    <label htmlFor="inputPassword">Password</label>
-                    {/* <input onChange={handleFieldChange} type="rePassword"
+                    <label htmlFor="password">Password</label>
+                    <input onChange={setRePassword} type="password"
                         id="rePassword"
                         placeholder="Re-enter Password"
                         required="" />
-                    <label htmlFor="inputRePassword">Not that I don't trust you, but let's type that in again</label> */}
+                    <label htmlFor="rePassword">Let's type that password in one more time</label>
                 </div>
                 {/* <button type="submit">Register</button> */}
                 <button
