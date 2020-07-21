@@ -19,7 +19,7 @@ const ArticleList = (props) => {
             return friendsArray.some(friend => friend.userId === article.userId)
         })
         // Sort article list in descending order
-        const sortedArticles = relevantArticles.sort((article1, article2) => new Date(article1.date) - new Date(article2.date))
+        const sortedArticles = relevantArticles.sort((article1, article2) => new Date(article2.date) - new Date(article1.date))
         setArticles(sortedArticles)
     }
 
@@ -52,7 +52,7 @@ const ArticleList = (props) => {
                     onClick={() => {props.history.push("/articles/new")}}>&#65291; Add Article
                 </button>
             <div className="article--list">
-                {articles.map(Article => <ArticleCard key={Article.id} article={Article} deleteArticle={deleteArticle} currentUserId={currentUserId} {...props} />)}
+                {articles.map(article => <ArticleCard key={article.id} article={article} deleteArticle={deleteArticle} currentUserId={currentUserId} {...props} />)}
             </div>
             </section>
         </>
