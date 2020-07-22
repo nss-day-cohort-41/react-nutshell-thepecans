@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import ApiManager from '../../modules/ApiManager'
 import MessageCard from './MessageCard'
+import MessageForm from './MessageForm'
 
 
 const MessageList = props => {
@@ -37,9 +38,11 @@ const convertTime = (unixTime) => {
     const date = new Date(unixTime * 1000)
     const newTime = date.toString()
     const newNewTime = newTime.slice(0,25)
-    console.log(newNewTime)
     return newNewTime
 }
+
+
+
 
 useEffect(() => {
     getSortSetMessages()
@@ -47,13 +50,14 @@ useEffect(() => {
 },[] )
 
 return (
-    <div>
+    <div className="message__container">
         <h1>Messages</h1>
         
-        <div>
+        <div className="message__container--cards">
             {messages.map(message => 
                     <MessageCard 
                         key={message.id}
+                        className="message__card"
                         message={message}
                         friends={friends}
                         convertTime={convertTime}
@@ -61,8 +65,12 @@ return (
                     />
             )}
         </div>
+        <div className="message__container--form">
+            <MessageForm 
+                getSortSetMessages={getSortSetMessages}
+                {...props} 
 
-        <div>
+            />
         </div>
     </div>
 )
