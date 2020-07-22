@@ -7,7 +7,7 @@ const MessageCard = props => {
         <section class="message--card">
             <div>
                 <strong>
-                    {props.message.userId}
+                    {props.message.user.username}
                 </strong>
             </div>
             <p>

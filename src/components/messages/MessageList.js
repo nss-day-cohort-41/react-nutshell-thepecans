@@ -11,7 +11,7 @@ const [friends, setFriends] = useState([])
 
 //message functions
 const getSortSetMessages = () => {
-    return ApiManager.getAll('messages')
+    return ApiManager.getAll('messages', 'user')
             .then(result => sortMessages(result))
             .then(result => setMessages(result))
 }
