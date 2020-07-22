@@ -17,7 +17,7 @@ const getSortSetMessages = () => {
 }
 
 const sortMessages = (array) => {
-    return array.sort((a,b) => b-a)
+    return array.sort((message1, message2) => message1.timeStamp-message2.timeStamp)
 }
 
 //friend functions
