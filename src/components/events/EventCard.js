@@ -1,7 +1,6 @@
 // EventCard by David Larsen
 import React from "react"
 import "./Event.css"
-// import { Link } from "react-router-dom"
 
 const EventCard = props => {
 

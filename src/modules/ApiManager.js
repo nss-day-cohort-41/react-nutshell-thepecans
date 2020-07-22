@@ -1,7 +1,6 @@
 //initial file created by Brendan Abernethy
 
 const remoteURL = "http://localhost:5002"
-//json-server -p 5002 -w database.json
 
 export default {
     //"embed" is an optional parameters. the function will work without it.  If "id is omitted, call the cunction with an empty string in the id parameter"
