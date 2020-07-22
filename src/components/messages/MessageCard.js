@@ -4,7 +4,7 @@ import React from 'react'
 const MessageCard = props => {
 
     return(
-        <section>
+        <section class="message--card">
             <div>
                 <strong>
                     {props.message.userId}

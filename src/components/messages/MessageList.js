@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import ApiManager from '../../modules/ApiManager'
 import MessageCard from './MessageCard'
+import "./Messages.css"
 
 
 const MessageList = props => {
@@ -47,10 +48,10 @@ useEffect(() => {
 },[] )
 
 return (
-    <div>
+    <div class="message--list">
         <h1>Messages</h1>
         
-        <div>
+        <>
             {messages.map(message => 
                     <MessageCard 
                         key={message.id}
@@ -60,8 +61,7 @@ return (
                         {...props}
                     />
             )}
-        </div>
-
+        </>
         <div>
         </div>
     </div>

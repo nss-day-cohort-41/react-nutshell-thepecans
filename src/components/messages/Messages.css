@@ -1,16 +1,11 @@
-/* Tasks.css by David Larsen */
-
-.task--list {
+.message--list {
     background-color: white;
-    width: 95%;
+    width: 90%;
     margin: 1rem auto;
+    padding: 1rem 2rem;
 }
 
-.task--card {
+.message--card {
     margin: 1rem 3rem;
     border-top: 2px dashed var(--purple);
-}
-
-button {
-    max-width: 400px;
 }
