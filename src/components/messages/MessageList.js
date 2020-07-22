@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import ApiManager from '../../modules/ApiManager'
 import MessageCard from './MessageCard'
+import "./Messages.css"
 
 
 const MessageList = props => {
@@ -10,13 +11,13 @@ const [friends, setFriends] = useState([])
 
 //message functions
 const getSortSetMessages = () => {
-    return ApiManager.getAll('messages')
+    return ApiManager.getAll('messages', 'user')
             .then(result => sortMessages(result))
             .then(result => setMessages(result))
 }
 
 const sortMessages = (array) => {
-    return array.sort((a,b) => b-a)
+    return array.sort((message1, message2) => message1.timeStamp-message2.timeStamp)
 }
 
 //friend functions
@@ -47,10 +48,10 @@ useEffect(() => {
 },[] )
 
 return (
-    <div>
+    <div class="message--list">
         <h1>Messages</h1>
         
-        <div>
+        <>
             {messages.map(message => 
                     <MessageCard 
                         key={message.id}
@@ -60,8 +61,7 @@ return (
                         {...props}
                     />
             )}
-        </div>
-
+        </>
         <div>
         </div>
     </div>
