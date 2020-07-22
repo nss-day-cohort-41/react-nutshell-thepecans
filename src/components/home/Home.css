@@ -1,10 +1,13 @@
 .home__body {
     padding: 0 1rem;
+    background-color: white;
 }
 .hli__header {
     display: flex;
     justify-content: center;
-    margin: 1rem;
+    margin: 0;
+    background-color: var(--blue);
+    color: white;
 }
 
 
@@ -31,8 +34,9 @@
     justify-content: flex-start;
     align-content: center;
     overflow: hidden;
-    background-color: cornsilk;
+    background-color: var(--purple);
     margin: 1rem;
+    border: 2px solid var(--blue);
 }
 .home__list__item__bottom {
     flex: 1;
@@ -42,6 +46,7 @@
     justify-content: flex-start;
     align-content: flex-start;
     overflow: hidden;
-    background-color: cornsilk;
+    background-color: var(--purple);
     margin: 1rem;
+    border: 2px solid var(--blue);
 }
