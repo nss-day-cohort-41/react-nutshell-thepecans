@@ -21,11 +21,16 @@ const sortMessages = (array) => {
     return array.sort((message1, message2) => message1.timeStamp-message2.timeStamp)
 }
 
+const deleteMessage = (id) => {
+    return ApiManager.deleteObject('messages',id)
+            .then(result => setMessages(result))
+}
+
 //friend functions
 
 const getFriends = () => {
     return ApiManager.getFriends(sessionStorage.credentials)
-            .then(result => setFriends(result))
+            .then(result => setFriends(result)) 
 }
 
 const getFriendIds = (array) => {
@@ -51,7 +56,7 @@ useEffect(() => {
 },[] )
 
 return (
-    <div class="message--list">
+    <div className="message--list">
         <h1>Messages</h1>
         
         <>
@@ -62,6 +67,7 @@ return (
                         message={message}
                         friends={friends}
                         convertTime={convertTime}
+                        deleteMessage={deleteMessage}
                         {...props}
                     />
             )}

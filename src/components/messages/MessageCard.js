@@ -4,7 +4,8 @@ import React from 'react'
 const MessageCard = props => {
 
     return(
-        <section class="message--card">
+        <section className="message--card">
+            
             <div>
                 <strong>
                     {props.message.user.username}
@@ -16,6 +17,10 @@ const MessageCard = props => {
             <p>
                 {props.message.content}
             </p>
+            {parseInt(sessionStorage.credentials) === props.message.userId  
+            ? <button onClick={() => {props.deleteMessage(props.message.id)}}>Delete</button>
+            :"" }
+            {console.log(props.message)}
         </section>
     )
 }
