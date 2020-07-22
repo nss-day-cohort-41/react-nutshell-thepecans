@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import ApiManager from '../../modules/ApiManager'
 import MessageCard from './MessageCard'
+import MessageForm from './MessageForm'
 import "./Messages.css"
 
 
@@ -20,11 +21,16 @@ const sortMessages = (array) => {
     return array.sort((message1, message2) => message1.timeStamp-message2.timeStamp)
 }
 
+const deleteMessage = (id) => {
+    return ApiManager.deleteObject('messages',id)
+            .then(() => getSortSetMessages())
+}
+
 //friend functions
 
 const getFriends = () => {
     return ApiManager.getFriends(sessionStorage.credentials)
-            .then(result => setFriends(result))
+            .then(result => setFriends(result)) 
 }
 
 const getFriendIds = (array) => {
@@ -38,9 +44,11 @@ const convertTime = (unixTime) => {
     const date = new Date(unixTime * 1000)
     const newTime = date.toString()
     const newNewTime = newTime.slice(0,25)
-    console.log(newNewTime)
     return newNewTime
 }
+
+
+
 
 useEffect(() => {
     getSortSetMessages()
@@ -48,21 +56,27 @@ useEffect(() => {
 },[] )
 
 return (
-    <div class="message--list">
+    <div className="message--list">
         <h1>Messages</h1>
         
         <>
             {messages.map(message => 
                     <MessageCard 
                         key={message.id}
+                        className="message__card"
                         message={message}
                         friends={friends}
                         convertTime={convertTime}
+                        deleteMessage={deleteMessage}
                         {...props}
                     />
             )}
         </>
-        <div>
+        <div className="message__container--form">
+            <MessageForm 
+                getSortSetMessages={getSortSetMessages}
+                {...props} 
+            />
         </div>
     </div>
 )
