@@ -1,12 +1,10 @@
 // ArticleCard by David Larsen
 import React from "react"
 import "./Article.css"
-// import { Link } from "react-router-dom"
 
 const ArticleCard = props => {
 
     // Parse date into proper display format
-    // const articleDate = new Date(props.article.date)
     const articleTimestamp = new Date(props.article.timestamp)
     const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
     const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
