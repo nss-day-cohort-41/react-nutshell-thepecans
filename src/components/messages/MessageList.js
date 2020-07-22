@@ -23,7 +23,7 @@ const sortMessages = (array) => {
 
 const deleteMessage = (id) => {
     return ApiManager.deleteObject('messages',id)
-            .then(result => setMessages(result))
+            .then(() => getSortSetMessages())
 }
 
 //friend functions
