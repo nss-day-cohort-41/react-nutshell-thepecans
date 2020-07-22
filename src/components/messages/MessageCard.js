@@ -20,7 +20,7 @@ const MessageCard = props => {
             {parseInt(sessionStorage.credentials) === props.message.userId  
             ? <button onClick={() => {props.deleteMessage(props.message.id)}}>Delete</button>
             :"" }
-            {console.log(props.message)}
+           
         </section>
     )
 }
